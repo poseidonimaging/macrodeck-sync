@@ -1,0 +1,30 @@
+27.09.2006
+- Created RCP base application with the following Features
+	- Splash screen
+	- Menu
+	- Toolbar
+	- TreeView for Plugin Preferences
+	- Description Viewer
+	- Help-System
+	- About dialog with plugin and configuration details
+- Deployment structure
+	- bundled with jre
+	- licencing issues
+	- Launcher (for windows)
+	- Product config	
+
+-> 3 hours
+
+- TODOs:
+	- Welcome Page
+	- Launcher (for mac and linux)
+	- Customize product (pictures, icons, ...)
+		- find icons
+		- create a logo
+	- HELP: integrate with toc
+	- HELP: not installed
+	- Define extension points for plugin developers
+	
+	
+	
+		
