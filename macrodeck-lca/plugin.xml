@@ -14,7 +14,7 @@
          point="org.eclipse.ui.perspectives">
       <perspective
             name="LCA"
-            class="de.mmeggs.macrodeck.lca.Perspective"
+            class="de.mmeggs.macrodeck.lca.ui.Perspective"
             id="de.mmeggs.macrodeck.lca.perspective">
       </perspective>
    </extension>
@@ -24,14 +24,14 @@
             name="Message"
             allowMultiple="true"
             icon="icons/sample2.gif"
-            class="de.mmeggs.macrodeck.lca.View"
+            class="de.mmeggs.macrodeck.lca.ui.View"
             id="de.mmeggs.macrodeck.lca.view">
       </view>
       <view
             name="Mailboxes"
             allowMultiple="true"
             icon="icons/sample3.gif"
-            class="de.mmeggs.macrodeck.lca.NavigationView"
+            class="de.mmeggs.macrodeck.lca.ui.NavigationView"
             id="de.mmeggs.macrodeck.lca.navigationView">
       </view>
    </extension>
@@ -53,6 +53,20 @@
             categoryId="de.mmeggs.macrodeck.lca.category"
             id="de.mmeggs.macrodeck.lca.openMessage">
       </command>
+      <category
+            description="%category.update.description"
+            id="de.mmeggs.macrodeck.lca.update"
+            name="%category.update.name"/>
+      <command
+            categoryId="de.mmeggs.macrodeck.lca.update"
+            description="%command.manageConfiguration.description"
+            id="de.mmeggs.macrodeck.lca.update.manageConfiguration"
+            name="%command.manageConfiguration.name"/>
+      <command
+            categoryId="de.mmeggs.macrodeck.lca.update"
+            description="%command.findAndInstallUpdates.description"
+            id="de.mmeggs.macrodeck.lca..update.findAndInstallUpdates"
+            name="%command.findAndInstallUpdates.name"/>
    </extension>
    <extension
          point="org.eclipse.ui.bindings">
@@ -73,7 +87,7 @@
       </key>
    </extension>
    <extension
-         id="macrodeck"
+         id="lca.macrodeck"
          point="org.eclipse.core.runtime.products">
       <product
             application="lca.application"
@@ -111,5 +125,19 @@
             content="help/intro/sample.xml"
             configId="org.eclipse.ui.intro.universalConfig">
       </configExtension>
+   </extension>
+   <extension
+         id="macrodeck"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="lca.application"
+            name="Macrodeck LCA">
+         <property
+               name="aboutText"
+               value="This is the macrodeck client application Version %version%."/>
+         <property
+               name="aboutImage"
+               value="/Macrodeck_LCA/icons/small-logo.gif"/>
+      </product>
    </extension>
 </plugin>

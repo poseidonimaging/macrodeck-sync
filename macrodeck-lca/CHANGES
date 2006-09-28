@@ -1,4 +1,4 @@
-27.09.2006
+27.09.2006:
 - Created RCP base application with the following Features
 	- Splash screen
 	- Menu
@@ -13,7 +13,12 @@
 	- Launcher (for windows)
 	- Product config	
 
--> 3 hours
+28.09.2006:
+- Bug fixed in help (not installed problem)
+- Integrated Update/Install mechanism for plugins
+	 - resides in help menu
+
+
 
 - TODOs:
 	- Welcome Page
@@ -22,7 +27,6 @@
 		- find icons
 		- create a logo
 	- HELP: integrate with toc
-	- HELP: not installed
 	- Define extension points for plugin developers
 	
 	

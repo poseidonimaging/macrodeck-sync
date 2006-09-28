@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.1"?>
 
-<product name="Macrodeck LCA" id="lca.de.mmeggs.macrodeck.lca" application="lca.application" useFeatures="false">
+<product name="Macrodeck LCA" id="lca.macrodeck" application="lca.application" useFeatures="false">
 
    <aboutInfo>
       <image path="/Macrodeck_LCA/icons/small-logo.gif"/>
@@ -60,6 +60,11 @@
       <plugin id="org.eclipse.ui.forms"/>
       <plugin id="org.eclipse.ui.intro"/>
       <plugin id="org.eclipse.ui.workbench"/>
+      <plugin id="org.eclipse.update.configurator"/>
+      <plugin id="org.eclipse.update.core"/>
+      <plugin id="org.eclipse.update.core.win32" fragment="true"/>
+      <plugin id="org.eclipse.update.scheduler"/>
+      <plugin id="org.eclipse.update.ui"/>
    </plugins>
 
 </product>
