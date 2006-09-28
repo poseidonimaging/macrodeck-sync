@@ -4,6 +4,8 @@ import org.eclipse.core.runtime.IPlatformRunnable;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.PlatformUI;
 
+import de.mmeggs.macrodeck.lca.ui.ApplicationWorkbenchAdvisor;
+
 /**
  * This class controls all aspects of the application's execution
  */

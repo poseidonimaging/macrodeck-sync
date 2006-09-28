@@ -1,4 +1,4 @@
-package de.mmeggs.macrodeck.lca;
+package de.mmeggs.macrodeck.lca.ui;
 
 import java.util.ArrayList;
 

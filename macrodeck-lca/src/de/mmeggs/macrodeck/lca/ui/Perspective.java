@@ -1,4 +1,4 @@
-package de.mmeggs.macrodeck.lca;
+package de.mmeggs.macrodeck.lca.ui;
 
 import org.eclipse.ui.IFolderLayout;
 import org.eclipse.ui.IPageLayout;

@@ -1,4 +1,4 @@
-package de.mmeggs.macrodeck.lca;
+package de.mmeggs.macrodeck.lca.ui;
 
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.resource.JFaceResources;

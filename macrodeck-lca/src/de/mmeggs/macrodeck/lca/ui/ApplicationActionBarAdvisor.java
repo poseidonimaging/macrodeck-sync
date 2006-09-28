@@ -1,4 +1,4 @@
-package de.mmeggs.macrodeck.lca;
+package de.mmeggs.macrodeck.lca.ui;
 
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.GroupMarker;
@@ -31,7 +31,7 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
     private IWorkbenchAction aboutAction;
     private IWorkbenchAction helpAction;
     private IWorkbenchAction welcomeAction;
-    private OpenViewAction findAndInstallAction;
+    private IWorkbenchAction findAndInstallAction;
     private IWorkbenchAction newWindowAction;
     private OpenViewAction openViewAction;
     private Action messagePopupAction;
@@ -57,7 +57,7 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
         helpAction = ActionFactory.HELP_CONTENTS.create(window);
         register(helpAction);
         
-        findAndInstallAction = new OpenViewAction(window, "Find and Install", View.ID);
+        findAndInstallAction = new InstallUpdateWizardAction(window, "Find and Install", View.ID);
         register(findAndInstallAction);
         
         newWindowAction = ActionFactory.OPEN_NEW_WINDOW.create(window);

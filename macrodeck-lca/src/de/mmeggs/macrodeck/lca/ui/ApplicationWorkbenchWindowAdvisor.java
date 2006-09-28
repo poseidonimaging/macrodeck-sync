@@ -1,4 +1,4 @@
-package de.mmeggs.macrodeck.lca;
+package de.mmeggs.macrodeck.lca.ui;
 
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.ui.application.ActionBarAdvisor;
@@ -18,9 +18,9 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
     
     public void preWindowOpen() {
         IWorkbenchWindowConfigurer configurer = getWindowConfigurer();
-        configurer.setInitialSize(new Point(600, 400));
-        configurer.setShowCoolBar(true);
-        configurer.setShowStatusLine(false);
+        configurer.setInitialSize(new Point(700, 500));
+        configurer.setShowCoolBar(false);
+        configurer.setShowStatusLine(true);
     }
     
 }
