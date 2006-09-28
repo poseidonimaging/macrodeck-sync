@@ -13,5 +13,9 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.help.ui,
  org.eclipse.help.webapp,
  org.eclipse.tomcat,
- org.eclipse.ui.forms
+ org.eclipse.ui.forms,
+ org.eclipse.update.configurator,
+ org.eclipse.update.core,
+ org.eclipse.update.scheduler,
+ org.eclipse.update.ui
 Eclipse-LazyStart: false
