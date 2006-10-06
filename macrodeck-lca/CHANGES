@@ -18,10 +18,17 @@
 - Integrated Update/Install mechanism for plugins
 	 - resides in help menu
 
+06.10.2006:
+- Generated Java Client Code from WSDL DataService http://www.macrodeck.com/services/service.wsdl
+
 
 
 - TODOs:
 	- Welcome Page
+		* Whats new?
+		* Download Plugins
+		* Help
+		* Start
 	- Launcher (for mac and linux)
 	- Customize product (pictures, icons, ...)
 		- find icons
