@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/de.mmeggs.macrodeck.lca.feature_1.0.0.jar" id="de.mmeggs.macrodeck.lca.feature" version="1.0.0" os="linux,macosx,win32" ws="carbon,gtk,win32" nl="en_US" arch="ia64,ia64_32,PA_RISC,ppc,sparc,x86,x86_64">
+      <category name="lca-base"/>
+   </feature>
+   <feature url="features/macrodecksample.feature_1.0.0.jar" id="macrodecksample.feature" version="1.0.0">
+      <category name="sync-plugins"/>
+   </feature>
+   <category-def name="lca-base" label="LCA">
+      <description>
+         Macrodeck Local Client Application
+      </description>
+   </category-def>
+   <category-def name="sync-plugins" label="Sync Plugins">
+      <description>
+         Macrodeck LCA Plugins to synchronize data from client computer
+      </description>
+   </category-def>
+</site>
