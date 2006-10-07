@@ -3,16 +3,16 @@
    <description url="http://www.macrodeck.com/sync/update">
       Macrodeck Sync Plugins Update Site
    </description>
-   <feature url="features/de.mmeggs.macrodeck.lca.feature_1.0.0.jar" id="de.mmeggs.macrodeck.lca.feature" version="1.0.0" os="linux,macosx,win32" ws="carbon,gtk,win32" nl="en_US" arch="ia64,ia64_32,PA_RISC,ppc,sparc,x86,x86_64">
+   <feature url="features/de.mmeggs.macrodeck.lca.feature_1.0.0.jar" id="de.mmeggs.macrodeck.lca.feature" version="1.0.0">
       <category name="lca-base"/>
    </feature>
-   <feature url="features/de.mmeggs.macrodeck.browser.firefox.feature_1.0.0.jar" id="de.mmeggs.macrodeck.browser.firefox.feature" version="1.0.0" os="win32" ws="win32" nl="en_US" arch="x86,x86_64">
+   <feature url="features/de.mmeggs.macrodeck.browser.firefox.feature_1.0.0.jar" id="de.mmeggs.macrodeck.browser.firefox.feature" version="1.0.0">
       <category name="win32-browser"/>
    </feature>
-   <feature url="features/de.mmeggs.macrodeck.browser.ie.feature_1.0.0.jar" id="de.mmeggs.macrodeck.browser.ie.feature" version="1.0.0" os="win32" ws="win32" nl="en_US" arch="x86,x86_64">
+   <feature url="features/de.mmeggs.macrodeck.browser.ie.feature_1.0.0.jar" id="de.mmeggs.macrodeck.browser.ie.feature" version="1.0.0">
       <category name="win32-browser"/>
    </feature>
-   <feature url="features/de.mmeggs.macrodeck.mail.outlook.feature_1.0.0.jar" id="de.mmeggs.macrodeck.mail.outlook.feature" version="1.0.0" os="win32" ws="win32" nl="en_US" arch="x86,x86_64">
+   <feature url="features/de.mmeggs.macrodeck.mail.outlook.feature_1.0.0.jar" id="de.mmeggs.macrodeck.mail.outlook.feature" version="1.0.0">
       <category name="win32-mail"/>
    </feature>
    <category-def name="lca-base" label="LCA">
