@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="de.mmeggs.macrodeck.lca.feature"
-      label="de.mmeggs.macrodeck.lca.feature"
+      label="Macrodeck Sync LCA"
       version="1.0.0"
       provider-name="mmeggs"
+      plugin="de.mmeggs.macrodeck.lca"
       os="linux,macosx,win32"
       ws="carbon,gtk,win32"
       nl="en_US"
@@ -22,23 +23,19 @@
    </license>
 
    <url>
+      <update label="Macrodeck Sync Plugins Update Site" url="http://www.macrodeck.com/sync/update"/>
       <discovery label="Macrodeck LCA Plugins" url="http://developers.macrodeck.com/update-lca"/>
    </url>
 
-   <requires>
-      <import plugin="org.eclipse.ui"/>
-      <import plugin="org.eclipse.core.runtime"/>
-      <import plugin="org.eclipse.ui.intro"/>
-      <import plugin="org.eclipse.ui.forms"/>
-      <import plugin="org.eclipse.update.configurator"/>
-      <import plugin="org.eclipse.update.core"/>
-      <import plugin="org.eclipse.update.scheduler"/>
-      <import plugin="org.eclipse.update.ui"/>
-   </requires>
+   <includes
+         id="org.eclipse.platform"
+         version="0.0.0"
+         name="Platform"
+         search-location="both"/>
 
    <plugin
-         id="TestPlugin"
-         os="aix,hpux,linux,macosx,qnx,solaris,win32"
+         id="de.mmeggs.macrodeck.lca"
+         os="win32"
          ws="carbon,gtk,motif,photon,win32"
          nl="en_US"
          arch="ia64,ia64_32,PA_RISC,ppc,sparc,x86,x86_64"
@@ -48,67 +45,11 @@
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.core.runtime"
-         download-size="0"
-         install-size="0"
-         version="3.1.0"
-         unpack="false"/>
-
-   <plugin
          id="org.eclipse.ui"
          download-size="0"
          install-size="0"
-         version="3.1.0"
+         version="3.2.1.M20060913-0800"
          unpack="false"/>
 
-   <plugin
-         id="org.eclipse.ui.forms"
-         download-size="0"
-         install-size="0"
-         version="3.1.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.ui.intro"
-         download-size="0"
-         install-size="0"
-         version="3.1.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.update.configurator"
-         download-size="0"
-         install-size="0"
-         version="3.1.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.update.core"
-         download-size="0"
-         install-size="0"
-         version="3.1.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.update.core.win32"
-         download-size="0"
-         install-size="0"
-         version="3.1.0"
-         fragment="true"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.update.scheduler"
-         download-size="0"
-         install-size="0"
-         version="3.1.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.update.ui"
-         download-size="0"
-         install-size="0"
-         version="3.1.0"
-         unpack="false"/>
 
 </feature>
