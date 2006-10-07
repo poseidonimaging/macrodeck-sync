@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.1"?>
 
-<product name="Macrodeck LCA" id="lca.macrodeck" application="lca.application" useFeatures="false">
+<product name="Macrodeck Synchronization Client" id="de.mmeggs.macrodeck.lca.sync-base" application="de.mmeggs.macrodeck.lca.application" useFeatures="false">
 
    <aboutInfo>
-      <image path="/Macrodeck_LCA/icons/small-logo.gif"/>
+      <image path="icons/small-logo.gif"/>
       <text>
-         This is the macrodeck client application Version %version%.
+         This is the macrodeck client application
+Version 0.0.1
+For more information visit http://www.macrodeck.com
+(C) 2006, Manfred Mayer
       </text>
    </aboutInfo>
 
@@ -15,10 +18,13 @@
    <launcherArgs>
    </launcherArgs>
 
-   <windowImages/>
+   <windowImages i32="/de.mmeggs.macrodeck.lca/icons/sync.gif"/>
 
    <splash
-      location="lca" />
+      location="de.mmeggs.macrodeck.lca"
+      startupProgressRect="0,240,628,265"
+      startupMessageRect="0,220,628,239"
+      startupForegroundColor="000000" />
    <launcher name="macrodeck">
       <solaris/>
       <win useIco="false">
@@ -26,11 +32,12 @@
       </win>
    </launcher>
 
-   <intro introId="lca.intro"/>
+   <intro introId="org.eclipse.platform.intro"/>
 
    <plugins>
+      <plugin id="Axis2_Codegen_Wizard"/>
       <plugin id="com.ibm.icu"/>
-      <plugin id="lca"/>
+      <plugin id="de.mmeggs.macrodeck.lca"/>
       <plugin id="org.apache.ant"/>
       <plugin id="org.apache.lucene"/>
       <plugin id="org.apache.xerces"/>
@@ -38,8 +45,14 @@
       <plugin id="org.eclipse.core.commands"/>
       <plugin id="org.eclipse.core.contenttype"/>
       <plugin id="org.eclipse.core.expressions"/>
+      <plugin id="org.eclipse.core.filesystem"/>
+      <plugin id="org.eclipse.core.filesystem.win32.x86" fragment="true"/>
       <plugin id="org.eclipse.core.jobs"/>
+      <plugin id="org.eclipse.core.resources"/>
+      <plugin id="org.eclipse.core.resources.compatibility" fragment="true"/>
+      <plugin id="org.eclipse.core.resources.win32" fragment="true"/>
       <plugin id="org.eclipse.core.runtime"/>
+      <plugin id="org.eclipse.core.runtime.compatibility"/>
       <plugin id="org.eclipse.core.runtime.compatibility.auth"/>
       <plugin id="org.eclipse.core.runtime.compatibility.registry" fragment="true"/>
       <plugin id="org.eclipse.core.variables"/>
@@ -49,22 +62,23 @@
       <plugin id="org.eclipse.help"/>
       <plugin id="org.eclipse.help.appserver"/>
       <plugin id="org.eclipse.help.base"/>
-      <plugin id="org.eclipse.help.ui"/>
-      <plugin id="org.eclipse.help.webapp"/>
       <plugin id="org.eclipse.jface"/>
       <plugin id="org.eclipse.osgi"/>
       <plugin id="org.eclipse.swt"/>
       <plugin id="org.eclipse.swt.win32.win32.x86" fragment="true"/>
-      <plugin id="org.eclipse.tomcat"/>
       <plugin id="org.eclipse.ui"/>
       <plugin id="org.eclipse.ui.forms"/>
+      <plugin id="org.eclipse.ui.ide"/>
       <plugin id="org.eclipse.ui.intro"/>
+      <plugin id="org.eclipse.ui.views"/>
+      <plugin id="org.eclipse.ui.win32" fragment="true"/>
       <plugin id="org.eclipse.ui.workbench"/>
       <plugin id="org.eclipse.update.configurator"/>
       <plugin id="org.eclipse.update.core"/>
       <plugin id="org.eclipse.update.core.win32" fragment="true"/>
       <plugin id="org.eclipse.update.scheduler"/>
       <plugin id="org.eclipse.update.ui"/>
+      <plugin id="org.junit"/>
    </plugins>
 
 </product>

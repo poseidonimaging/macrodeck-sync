@@ -21,20 +21,30 @@
 06.10.2006:
 - Generated Java Client Code from WSDL DataService http://www.macrodeck.com/services/service.wsdl
 
+07.10.2006:
+- Introduced welcome page
+- created 3 plugins to demonstrate integration
+- created settingspages with PreferenceStore
+- integrated Navigationview
+- PreferencePage for automatic Install/Update
+- Defined extension points for plugin developers
+	- category
+	- syncActions
+	- settingsPage
 
+08.10.2006:
+- Finished welcome page handling
+- Settings Page for Logindata
+- Documentation for extension point
 
 - TODOs:
-	- Welcome Page
-		* Whats new?
-		* Download Plugins
-		* Help
-		* Start
+	- setup Update site on server
+		- Problems with update site
 	- Launcher (for mac and linux)
 	- Customize product (pictures, icons, ...)
 		- find icons
 		- create a logo
 	- HELP: integrate with toc
-	- Define extension points for plugin developers
 	
 	
 	
