@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         name="Internet Explorer"
+         point="de.mmeggs.macrodeck.lca.sync">
+      <category
+            id="de.mmeggs.macrodeck.browser"
+            label="Browser"/>
+      <settingsPage
+            class="de.mmeggs.macrodeck.browser.ie.PreferencePage"
+            description="Synchronize your Internet Explorer bookmarks"/>
+      <syncAction class="de.mmeggs.macrodeck.browser.ie.actions.BrowserSyncAction"/>
+   </extension>
+
+</plugin>
