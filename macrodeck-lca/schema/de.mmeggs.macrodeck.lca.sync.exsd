@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="de.mmeggs.macrodeck.lca">
+<annotation>
+      <appInfo>
+         <meta.schema plugin="de.mmeggs.macrodeck.lca" id="de.mmeggs.macrodeck.lca.sync" name="de.mmeggs.macrodeck.lca.sync"/>
+      </appInfo>
+      <documentation>
+         Extension point for sync plugins. Extend this if you want to provide sync features to macrodeck Local Client Application.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <complexType>
+         <sequence>
+            <element ref="category" minOccurs="1" maxOccurs="unbounded"/>
+            <element ref="settingsPage"/>
+            <element ref="syncAction"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  id of the extension point. This has to be extended by a plugin
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  The name of the extension is shown in the navigation tree
+               </documentation>
+               <appInfo>
+                  <meta.attribute translatable="true"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="category">
+      <annotation>
+         <appInfo>
+            <meta.element labelAttribute="label"/>
+         </appInfo>
+         <documentation>
+            This tag describes the category in the navigation tree
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  the category id. Used as a reference in other plugins
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="label" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The category label is displayed in the navigation tree
+               </documentation>
+               <appInfo>
+                  <meta.attribute translatable="true"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="settingsPage">
+      <annotation>
+         <documentation>
+            Each plugin has its own settings page, when its name is selected in the navigation tree.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  This implementation class has to extend de.mmeggs.macrodeck.lca.ui.settings.EmptyPreferencePage. This offers the frame for displaying any plugin specific properties.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn="de.mmeggs.macrodeck.lca.ui.settings.EmptyPreferencePage"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="description" type="string">
+            <annotation>
+               <documentation>
+                  is displayed in the header of the settings page
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="syncAction">
+      <annotation>
+         <documentation>
+            Sync Action for plugin
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  This action class has to extend de.mmeggs.macrodeck.lca.actions.SyncAction. It is responible to collect the data from its device scope.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn="de.mmeggs.macrodeck.lca.actions.SyncAction"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="since"/>
+      </appInfo>
+      <documentation>
+         [Enter the first release in which this extension point appears.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="examples"/>
+      </appInfo>
+      <documentation>
+         Your plugin.xml could look like this:
+        &lt;pre&gt;
+		 &lt;plugin&gt;
+		   &lt;extension
+		         name=&quot;Internet Explorer&quot;
+		         point=&quot;de.mmeggs.macrodeck.lca.sync&quot;&gt;
+		      &lt;category
+		            id=&quot;de.mmeggs.macrodeck.browser&quot;
+		            label=&quot;Browser&quot;/&gt;
+		      &lt;settingsPage
+		            class=&quot;de.mmeggs.macrodeck.browser.ie.PreferencePage&quot;
+		            description=&quot;Synchronize your Internet Explorer bookmarks&quot;/&gt;
+		      &lt;syncAction class=&quot;de.mmeggs.macrodeck.browser.ie.actions.BrowserSyncAction&quot;/&gt;
+		   &lt;/extension&gt;
+		&lt;/plugin&gt;
+        &lt;/pre&gt; 
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="apiInfo"/>
+      </appInfo>
+      <documentation>
+         [Enter API information here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="implementation"/>
+      </appInfo>
+      <documentation>
+         [Enter information about supplied implementation of this extension point.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="copyright"/>
+      </appInfo>
+      <documentation>
+         
+      </documentation>
+   </annotation>
+
+</schema>
