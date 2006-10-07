@@ -9,7 +9,7 @@ package de.mmeggs.macrodeck.lca.ui;
  */
 public interface ICommandIds {
 
-    public static final String CMD_OPEN = "de.mmeggs.macrodeck.lca.open";
-    public static final String CMD_OPEN_MESSAGE = "de.mmeggs.macrodeck.lca.openMessage";
+	public static final String INSTALL_UPDATE = "de.mmeggs.macrodeck.lca.sync.installUpdate";
+	public static final String SETTINGS = "de.mmeggs.macrodeck.lca.sync.settings";
     
 }
