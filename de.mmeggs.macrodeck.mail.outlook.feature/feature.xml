@@ -4,10 +4,7 @@
       label="Sync Outlook Feature"
       version="1.0.0"
       provider-name="mmeggs"
-      os="win32"
-      ws="win32"
-      nl="en_US"
-      arch="x86,x86_64">
+      plugin="de.mmeggs.macrodeck.mail.outlook">
 
    <description url="http://www.macrodeck.com">
       This is example to demonstrate how to create plugins for Macrodeck Sync local client application.
@@ -92,20 +89,23 @@ THE ACCOMPANYING PROGRAM IS PROVIDED UNDER THE TERMS OF THIS COMMON PUBLIC LICEN
    </license>
 
    <url>
+      <update label="Macrodeck Sync Plugins Update Site" url="http://www.macrodeck.com/sync/update"/>
       <discovery label="Macrodeck Sync Plugins Update Site" url="http://www.macrodeck.com/sync/update"/>
    </url>
 
    <includes
          id="de.mmeggs.macrodeck.lca.feature"
-         version="0.0.0"
+         version="1.0.0"
          search-location="both"/>
+
+   <requires>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="de.mmeggs.macrodeck.lca"/>
+   </requires>
 
    <plugin
          id="de.mmeggs.macrodeck.mail.outlook"
-         os="win32"
-         ws="win32"
-         nl="en_US"
-         arch="x86,x86_64"
          download-size="0"
          install-size="0"
          version="1.0.0"
