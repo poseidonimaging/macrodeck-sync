@@ -90,6 +90,12 @@
                 value="This is the macrodeck client application&#x0A;Version 0.0.1&#x0A;For more information visit http://www.macrodeck.com&#x0A;(C) 2006, Manfred Mayer"/> 
           <property name="appName" value="%appName"/>
           <property
+          		name="introTitle"
+          		value="%productIntroTitle"/>
+          <property
+          		name="introBrandingImageText"
+          		value="%productIntroBrandingText"/>
+          <property
                 name="startupForegroundColor"
                 value="000000"/>
           <property

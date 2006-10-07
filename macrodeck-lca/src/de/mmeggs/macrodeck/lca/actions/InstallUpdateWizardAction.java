@@ -20,7 +20,9 @@ import org.eclipse.update.search.BackLevelFilter;
 import org.eclipse.update.search.UpdateSearchRequest;
 import org.eclipse.update.search.UpdateSearchScope;
 
+import de.mmeggs.macrodeck.lca.LCActivator;
 import de.mmeggs.macrodeck.lca.ui.ICommandIds;
+import de.mmeggs.macrodeck.lca.ui.settings.PreferenceConstants;
 
 /**
  * Action to invoke the Update install wizard.
@@ -75,7 +77,7 @@ public class InstallUpdateWizardAction extends Action implements
 					UpdateSearchScope searchScope = new UpdateSearchScope();
 					searchScope.addSearchSite(
 									"Macrodeck Update Site",
-									new URL("file:///C:/dev/ws/openaw/de.mmeggs.macrodeck.lca.updatesite/"),
+									new URL(LCActivator.getDefault().getPreferenceStore().getString(PreferenceConstants.P_UPDATE_SITE)),
 									new String[] {});
 					UpdateSearchRequest searchRequest = new UpdateSearchRequest(
 							new SiteSearchCategory(true), searchScope);

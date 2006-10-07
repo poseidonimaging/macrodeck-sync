@@ -40,8 +40,12 @@ public class UserSettingsPage
 	 * restore itself.
 	 */
 	public void createFieldEditors() {
-		addField(new StringFieldEditor(PreferenceConstants.P_USERNAME, "&Username:", getFieldEditorParent()));
+
+        addField(new StringFieldEditor(PreferenceConstants.P_USERNAME, "&Username:", getFieldEditorParent()));
 		addField(new PasswordFieldEditor(PreferenceConstants.P_PASSWD, "&Password:", getFieldEditorParent()));
+        
+        addField(new StringFieldEditor(PreferenceConstants.P_UPDATE_SITE, "Update&Site:", getFieldEditorParent()));
+        addField(new StringFieldEditor(PreferenceConstants.P_DATA_SERVICE_URL, "&DataServiceURL:", getFieldEditorParent()));
 	}
 
 	/* (non-Javadoc)
