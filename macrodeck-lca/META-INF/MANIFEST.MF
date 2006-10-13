@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Macrodeck Sync LCA
-Bundle-SymbolicName: de.mmeggs.macrodeck.lca;singleton:=true
+Bundle-SymbolicName: com.macrodeck.lca.sync;singleton:=true
 Bundle-Version: 1.0.0
-Bundle-Activator: de.mmeggs.macrodeck.lca.LCActivator
+Bundle-Activator: com.macrodeck.lca.sync.LCActivator
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.intro,
@@ -19,9 +19,10 @@ Eclipse-LazyStart: true
 Bundle-ClassPath: .,
  lib/commons-httpclient-3.0.1.jar,
  lib/commons-codec-1.3.jar
-Export-Package: com.macrodeck.services.dataservice_0_2,
- de.mmeggs.macrodeck.lca.actions,
- de.mmeggs.macrodeck.lca.ui.settings
+Export-Package: com.macrodeck.lca.sync,
+ com.macrodeck.lca.sync.actions,
+ com.macrodeck.lca.sync.ui.settings,
+ com.macrodeck.services.dataservice_0_2
 Bundle-RequiredExecutionEnvironment: J2SE-1.4,
  J2SE-1.5,
  OSGi/Minimum-1.1
