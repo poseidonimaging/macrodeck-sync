@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         name="Firefox"
+         point="com.macrodeck.lca.sync">
+      <category
+            id="com.macrodeck.plugins.browsers"
+            label="Browser"/>
+      <settingsPage
+            class="com.macrodeck.plugins.browsers.firefox.PreferencePage"
+            description="Synchronize your Mozilla Firefox bookmarks with Macrodeck"/>
+      <syncAction class="com.macrodeck.plugins.browsers.firefox.actions.BrowserSyncAction"/>
+   </extension>
+
+</plugin>
