@@ -4,14 +4,14 @@
 
    <extension
          name="Outlook Express"
-         point="de.mmeggs.macrodeck.lca.sync">
+         point="com.macrodeck.lca.sync">
       <category
-            id="de.mmeggs.macrodeck.mailclients"
+            id="com.macrodeck.plugins.mailclients"
             label="MailClients"/>
       <settingsPage
-            class="de.mmeggs.macrodeck.mail.outlook.PreferencePage"
+            class="com.macrodeck.plugins.mailclients.outlook.PreferencePage"
             description="Sync Oulook data with Macrodeck"/>
-      <syncAction class="de.mmeggs.macrodeck.mail.outlook.actions.SyncOutlookDataAction"/>
+      <syncAction class="com.macrodeck.mail.outlook.actions.SyncOutlookDataAction"/>
    </extension>
 
 </plugin>
