@@ -4,14 +4,14 @@
 
    <extension
          name="Internet Explorer"
-         point="de.mmeggs.macrodeck.lca.sync">
+         point="com.macrodeck.lca.sync">
       <category
-            id="de.mmeggs.macrodeck.browser"
+            id="com.macrodeck.plugins.browsers"
             label="Browser"/>
       <settingsPage
-            class="de.mmeggs.macrodeck.browser.ie.PreferencePage"
+            class="com.macrodeck.plugins.browsers.ie.PreferencePage"
             description="Synchronize your Internet Explorer bookmarks"/>
-      <syncAction class="de.mmeggs.macrodeck.browser.ie.actions.BrowserSyncAction"/>
+      <syncAction class="com.macrodeck.plugins.browsers.ie.actions.BrowserSyncAction"/>
    </extension>
 
 </plugin>
