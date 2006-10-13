@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         name="Outlook Express"
+         point="com.macrodeck.lca.sync">
+      <category
+            id="com.macrodeck.plugins.mailclients"
+            label="MailClients"/>
+      <settingsPage
+            class="com.macrodeck.plugins.mailclients.outlook.PreferencePage"
+            description="Sync Oulook data with Macrodeck"/>
+      <syncAction class="com.macrodeck.mail.outlook.actions.SyncOutlookDataAction"/>
+   </extension>
+
+</plugin>
