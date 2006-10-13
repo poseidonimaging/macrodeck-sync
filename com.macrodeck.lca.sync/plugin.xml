@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+	
+	<extension-point 
+		id="com.macrodeck.lca.sync" 
+		name="com.macrodeck.lca.sync" 
+		schema="schema/com.macrodeck.lca.sync.exsd"/>
+
+
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            label="sync"
+            visible="true"
+            id="com.macrodeck.lca.sync.actionSet">
+         <menu label="Synchronize"
+               id="syncMenu">
+            <separator name="syncGroup"/>
+         </menu>
+         <action
+               accelerator="CTRL+F5"
+               class="com.macrodeck.lca.sync.actions.SyncAllAction"
+               icon="icons/16x16/sync.gif"
+               id="com.macrodeck.lca.sync.actions.SyncAllAction"
+               label="Synchronize &amp;All"
+               menubarPath="syncMenu/syncGroup"
+               toolbarPath="syncGroup"
+               tooltip="Synchronize all configured data">
+         </action>
+      </actionSet>
+   </extension>
+
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run class="com.macrodeck.lca.sync.LCApplication">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="Sync Plugin Settings"
+            class="com.macrodeck.lca.sync.ui.internal.MainPerspective"
+            id="com.macrodeck.lca.sync.perspective">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            name="SyncPluginsConfigView"
+            allowMultiple="false"
+            icon="icons/16x16/sync.gif"
+            class="com.macrodeck.lca.sync.ui.internal.MainView"
+            id="com.macrodeck.lca.sync.navigationView">
+      </view>
+      <view
+            name="SyncPluginsConfigView"
+            allowMultiple="false"
+            icon="icons/16x16/sync.gif"
+            class="org.eclipse.ui.intro.config.CustomizableIntroPart"
+            id="com.macrodeck.lca.sync.standby">
+      </view>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="org.eclipse.ui.file.exit"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="CTRL+X">
+      </key>
+      <key
+            commandId="com.macrodeck.lca.sync.actions.SyncAllAction.command"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="CTRL+F5"/>
+   </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="com.macrodeck.lca.sync.application"
+            name="Macrodeck Synchronization Client">
+		  <property name="windowImages" value="icons/m-16x16-notrans.png, icons/m-16x16-notrans.png, icons/m-32x32-notrans.png"/>
+          <property name="aboutImage" value="icons/small-shadow-white.png"/> 
+          <property
+                name="aboutText"
+                value="This is the macrodeck client application&#x0A;Version 0.0.1&#x0A;For more information visit http://www.macrodeck.com&#x0A;(C) 2006, Manfred Mayer"/> 
+          <property name="appName" value="%appName"/>
+          <property
+          		name="introTitle"
+          		value="%productIntroTitle"/>
+          <property
+          		name="introBrandingImageText"
+          		value="%productIntroBrandingText"/>
+          <property
+                name="startupForegroundColor"
+                value="000000"/>
+          <property
+                name="startupMessageRect"
+                value="0,220,628,239"/>
+          <property
+                name="startupProgressRect"
+                value="0,240,628,265"/> 
+      </product>
+   </extension>
+   
+   <!-- help extension removed temporarily - replaced by simple link to web
+   <extension point="org.eclipse.ui.helpSupport">
+      <config class="org.eclipse.help.ui.internal.DefaultHelpUI">
+      </config>
+   </extension>
+   
+   <extension point="org.eclipse.help.toc">
+      <toc file="help/toc.xml">
+      </toc>
+      <toc file="help/testToc.xml"
+            primary="true">
+      </toc>
+   </extension>
+   -->
+   <extension point="org.eclipse.ui.intro">
+      <intro
+            class="org.eclipse.ui.intro.config.CustomizableIntroPart"
+            id="org.eclipse.platform.intro"
+            icon="icons/16x16/welcome.png">
+      </intro>
+      <introProductBinding
+            introId="org.eclipse.platform.intro"
+            productId="com.macrodeck.lca.sync.product">
+      </introProductBinding>
+   </extension>
+   <extension id="intro" point="org.eclipse.ui.intro.config">
+      <config
+            introId="org.eclipse.platform.intro"
+            id="org.eclipse.platform.introConfig"
+            content="$nl$/intro/introContent.xml">
+         <presentation home-page-id="root" 
+         			   standby-page-id="com.macrodeck.lca.sync.standby">
+            <implementation
+                  style="$nl$/intro/css/shared.css"
+                  kind="html"
+                  os="win32,linux,macosx">
+            </implementation>
+            <implementation
+                  kind="swt">
+            </implementation>
+            <!--
+            fg="#7269d2" 
+            -->
+            <launchBar 	
+            	location="fastview" 
+            	bg="#c6c3e8" 
+            	>
+               <shortcut
+                     icon="intro/css/graphics/icons/etool/overview.gif"
+                     tooltip="%shortcut.overview.tooltip"
+                     url="http://www.macrodeck.com"/>
+               <shortcut
+                     tooltip="%shortcut.whatsnew.tooltip"
+                     icon="intro/css/graphics/icons/etool/whatsnew.gif"
+                     url="http://org.eclipse.ui.intro/runAction?class=com.macrodeck.lca.sync.actions.InstallUpdateWizardAction&amp;pluginId=com.macrodeck.lca.sync"/>                                             
+               <shortcut
+                     tooltip="%shortcut.tutorials.tooltip"
+                     icon="intro/css/graphics/icons/etool/tutorials.gif"
+                     url="http://org.eclipse.ui.intro/runAction?class=com.macrodeck.lca.sync.actions.SettingsDialogAction&amp;pluginId=com.macrodeck.lca.sync"/>
+            </launchBar>
+         </presentation>
+      </config>
+   </extension>
+   
+   <extension
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="com.macrodeck.lca.sync.application"
+            name="Macrodeck LCA">
+         <property
+               name="aboutText"
+               value="This is the macrodeck client application Version %version%."/>
+         <property
+               name="aboutImage"
+               value="icons/small-shadow-white.png"/>
+      </product>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="com.macrodeck.lca.sync.ui.settings.UserSettingsPage"
+            id="com.macrodeck.lca.sync.preferences.UserSettingsPage"
+            name="User Settings"/>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer class="com.macrodeck.lca.sync.ui.settings.PreferenceInitializer"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            description="Starts synchronization actions in all installed plugins"
+            id="com.macrodeck.lca.sync.actions.SyncAllAction.command"
+            name="com.macrodeck.lca.sync.actions.SyncAllAction.command"/>
+   </extension>
+</plugin>

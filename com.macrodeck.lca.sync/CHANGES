@@ -1,0 +1,58 @@
+27.09.2006:
+- Created RCP base application with the following Features
+	- Splash screen
+	- Menu
+	- Toolbar
+	- TreeView for Plugin Preferences
+	- Description Viewer
+	- Help-System
+	- About dialog with plugin and configuration details
+- Deployment structure
+	- bundled with jre
+	- licencing issues
+	- Launcher (for windows)
+	- Product config	
+
+28.09.2006:
+- Bug fixed in help (not installed problem)
+- Integrated Update/Install mechanism for plugins
+	 - resides in help menu
+
+06.10.2006:
+- Generated Java Client Code from WSDL DataService http://www.macrodeck.com/services/service.wsdl
+
+07.10.2006:
+- Introduced welcome page
+- created 3 plugins to demonstrate integration
+- created settingspages with PreferenceStore
+- integrated Navigationview
+- PreferencePage for automatic Install/Update
+- Defined extension points for plugin developers
+	- category
+	- syncActions
+	- settingsPage
+
+08.10.2006:
+- Finished welcome page handling
+- Settings Page for Logindata
+- Documentation for extension point
+
+13.10.2006:
+- renamed all plugins/projects/packages to com.macrodeck...
+- added original icons
+- added Tray support
+	- added Window visible/invisible handling according to tray
+
+
+- TODOs:
+	- setup Update site on server
+		- Problems with update site
+	- Launcher (for mac and linux)
+	- Customize product (pictures, icons, ...)
+		- find icons
+		- create a logo
+	- HELP: integrate with toc
+	
+	
+	
+		

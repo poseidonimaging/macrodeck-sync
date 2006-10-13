@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<introContent>
+    <!-- 
+
+-->
+    <page alt-style="css/root_swt.properties" style="css/root.css" id="root" style-id="page">
+        <title style-id="intro-header">Welcome to Macrodeck Synchronization Client</title>
+        <group id="links-background">
+            <group id="page-links">
+				<anchor id="beginAnchor"/>
+                <link label="Overview" url="http://www.macrodeck.com" id="overview" style-id="left">
+                    <img id="overview_img" style-id="content-img" src="css/graphics/icons/etool/overview72.gif" alt="Overview">
+                    </img>
+                    <text>Find out what Macrodeck is all about</text>
+                </link>
+                <link label="Get new features" url="http://org.eclipse.ui.intro/runAction?class=com.macrodeck.lca.sync.actions.InstallUpdateWizardAction&amp;pluginId=com.macrodeck.lca.sync" id="news" style-id="right">
+                    <img id="whatsnew_img" style-id="content-img" src="css/graphics/icons/etool/whatsnew72.gif" alt="Install new features">
+                    </img>
+                    <text>Find or update new features</text>
+                </link>
+                <link label="Start setup" url="http://org.eclipse.ui.intro/runAction?class=com.macrodeck.lca.sync.actions.SettingsDialogAction&amp;pluginId=com.macrodeck.lca.sync" id="tutorials" style-id="left">
+                    <img id="tutorials_img" style-id="content-img" src="css/graphics/icons/etool/tutorials72.gif" alt="Set up">
+                    </img>
+                    <text>Setup Macrodeck Synchronization Client</text>
+                </link>
+
+				<anchor id="endAnchor"/>
+            </group>
+        </group>
+        <group id="action-links">
+            <link url="http://org.eclipse.ui.intro/switchToLaunchBar" label="Workbench" id="workbench">
+                <img id="workbench_img" style-id="content-img" src="css/graphics/icons/etool/wb48.gif" alt="Go to the workbench">
+                </img>
+                <text>Go to the workbench</text>
+            </link>
+        </group>
+    </page>
+</introContent>
