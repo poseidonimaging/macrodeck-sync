@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <description url="http://www.macrodeck.com/sync/update">
+      Macrodeck Sync Plugins Update Site
+   </description>
+   <feature url="features/com.macrodeck.lca.sync.feature_1.0.0.jar" id="com.macrodeck.lca.sync.feature" version="1.0.0">
+      <category name="Sync Application"/>
+   </feature>
+   <feature url="features/com.macrodeck.plugins.browsers.firefox.feature_1.0.0.jar" id="com.macrodeck.plugins.browsers.firefox.feature" version="1.0.0">
+      <category name="Browsers"/>
+   </feature>
+   <feature url="features/com.macrodeck.plugins.browsers.ie.feature_1.0.0.jar" id="com.macrodeck.plugins.browsers.ie.feature" version="1.0.0">
+      <category name="Browsers"/>
+   </feature>
+   <feature url="features/com.macrodeck.plugins.mailclients.outlook.feature_1.0.1.jar" id="com.macrodeck.plugins.mailclients.outlook.feature" version="1.0.1" os="win32" ws="win32" nl="en_US" arch="x86,x86_64">
+      <category name="MailClients"/>
+   </feature>
+   <category-def name="Sync Application" label="Sync Application">
+      <description>
+         Macrodeck Local Client Application
+      </description>
+   </category-def>
+   <category-def name="Browsers" label="Browser Sync Plugins for Windows platform">
+      <description>
+         Macrodeck LCA Plugins to synchronize data from client computer
+      </description>
+   </category-def>
+   <category-def name="MailClients" label="Sync with Mail client on Win32 Platform"/>
+</site>
