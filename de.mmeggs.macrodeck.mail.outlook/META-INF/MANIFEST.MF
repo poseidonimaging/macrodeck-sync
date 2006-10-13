@@ -1,12 +1,12 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Outlook
-Bundle-SymbolicName: de.mmeggs.macrodeck.mail.outlook;singleton:=true
+Bundle-SymbolicName: com.macrodeck.plugins.mailclients.outlook;singleton:=true
 Bundle-Version: 1.0.0
-Bundle-Activator: de.mmeggs.macrodeck.mail.outlook.Activator
+Bundle-Activator: com.macrodeck.plugins.mailclients.outlook.Activator
 Bundle-Vendor: mmeggs
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- de.mmeggs.macrodeck.lca
+ com.macrodeck.lca.sync
 Eclipse-LazyStart: true
