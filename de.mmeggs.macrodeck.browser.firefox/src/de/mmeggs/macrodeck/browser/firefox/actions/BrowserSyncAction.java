@@ -1,10 +1,11 @@
-package de.mmeggs.macrodeck.browser.firefox.actions;
+package com.macrodeck.plugins.browsers.firefox.actions;
 
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IWorkbenchWindowActionDelegate;
 
-import de.mmeggs.macrodeck.lca.actions.SyncAction;
+import com.macrodeck.lca.sync.actions.SyncAction;
+
 
 /**
  * Our sample action implements workbench action delegate.
