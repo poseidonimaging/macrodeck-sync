@@ -1,4 +1,4 @@
-package de.mmeggs.macrodeck.browser.ie.actions;
+package com.macrodeck.plugins.browsers.ie.actions;
 
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
@@ -6,7 +6,8 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.IWorkbenchWindowActionDelegate;
 import org.eclipse.jface.dialogs.MessageDialog;
 
-import de.mmeggs.macrodeck.lca.actions.SyncAction;
+import com.macrodeck.lca.sync.actions.SyncAction;
+
 
 /**
  * Our sample action implements workbench action delegate.
