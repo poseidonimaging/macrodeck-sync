@@ -4,14 +4,14 @@
 
    <extension
          name="Firefox"
-         point="de.mmeggs.macrodeck.lca.sync">
+         point="com.macrodeck.lca.sync">
       <category
-            id="de.mmeggs.macrodeck.browser"
+            id="com.macrodeck.plugins.browsers"
             label="Browser"/>
       <settingsPage
-            class="de.mmeggs.macrodeck.browser.firefox.PreferencePage"
+            class="com.macrodeck.plugins.browsers.firefox.PreferencePage"
             description="Synchronize your Mozilla Firefox bookmarks with Macrodeck"/>
-      <syncAction class="de.mmeggs.macrodeck.browser.firefox.actions.BrowserSyncAction"/>
+      <syncAction class="com.macrodeck.plugins.browsers.firefox.actions.BrowserSyncAction"/>
    </extension>
 
 </plugin>

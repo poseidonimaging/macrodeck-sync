@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="de.mmeggs.macrodeck.browser.firefox" default="build.jars" basedir=".">
+
+	<property name="basews" value="${ws}"/>
+	<property name="baseos" value="${os}"/>
+	<property name="basearch" value="${arch}"/>
+	<property name="basenl" value="${nl}"/>
+
+	<!-- Compiler settings. -->
+	<property name="javacFailOnError" value="false"/>
+	<property name="javacDebugInfo" value="on"/>
+	<property name="javacVerbose" value="false"/>
+	<property name="logExtension" value=".log"/>
+	<property name="compilerArg" value=""/>
+	<property name="javacSource" value="1.3"/>
+	<property name="javacTarget" value="1.2"/>
+	<path id="path_bootclasspath">
+		<fileset dir="${java.home}/lib">
+			<include name="*.jar"/>
+		</fileset>
+	</path>
+	<property name="bootclasspath" refid="path_bootclasspath"/>
+	<property name="bundleJavacSource" value="${javacSource}"/>
+	<property name="bundleJavacTarget" value="${javacTarget}"/>
+	<property name="bundleBootClasspath" value="${bootclasspath}"/>
+
+	<target name="init" depends="properties">
+		<condition property="pluginTemp" value="${buildTempFolder}/plugins">
+			<isset property="buildTempFolder"/>
+		</condition>
+		<property name="pluginTemp" value="${basedir}"/>
+		<condition property="build.result.folder" value="${pluginTemp}/de.mmeggs.macrodeck.browser.firefox">
+			<isset property="buildTempFolder"/>
+		</condition>
+		<property name="build.result.folder" value="${basedir}"/>
+		<property name="temp.folder" value="${basedir}/temp.folder"/>
+		<property name="plugin.destination" value="${basedir}"/>
+	</target>
+
+	<target name="properties" if="eclipse.running">
+		<property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+
+	</target>
+
+	<target name="build.update.jar" depends="init" description="Build the plug-in: de.mmeggs.macrodeck.browser.firefox for an update site.">
+		<delete dir="${temp.folder}"/>
+		<mkdir dir="${temp.folder}"/>
+		<antcall target="build.jars"/>
+		<antcall target="gather.bin.parts">
+			<param name="destination.temp.folder" value="${temp.folder}/"/>
+		</antcall>
+		<zip destfile="${plugin.destination}/de.mmeggs.macrodeck.browser.firefox_1.0.0.jar" basedir="${temp.folder}/de.mmeggs.macrodeck.browser.firefox_1.0.0" filesonly="false" whenempty="skip" update="false"/>
+		<delete dir="${temp.folder}"/>
+	</target>
+
+	<target name="@dot" depends="init" unless="@dot" description="Create jar: de.mmeggs.macrodeck.browser.firefox @dot.">
+		<delete dir="${temp.folder}/@dot.bin"/>
+		<mkdir dir="${temp.folder}/@dot.bin"/>
+		<path id="@dot.classpath">
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.eclipse.ui_3.2.0.I20060605-1400.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.eclipse.core.runtime_3.2.0.v20060603.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.eclipse.osgi_3.2.0.v20060601.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.eclipse.equinox.common_3.2.0.v20060603.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.eclipse.core.jobs_3.2.0.v20060603.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.eclipse.core.runtime.compatibility.registry_3.2.0.v20060603/runtime_registry_compatibility.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.eclipse.core.runtime.compatibility.registry_3.2.0.v20060603/@dot"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.eclipse.equinox.registry_3.2.0.v20060601.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.eclipse.equinox.preferences_3.2.0.v20060601.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.eclipse.core.contenttype_3.2.0.v20060603.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.eclipse.core.runtime.compatibility.auth_3.2.0.v20060601.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.eclipse.swt_3.2.0.v3232o.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.eclipse.swt.win32.win32.x86_3.2.0.v3232m.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.eclipse.jface_3.2.0.I20060605-1400.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.eclipse.core.commands_3.2.0.I20060605-1400.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.eclipse.ui.workbench_3.2.0.I20060605-1400.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.eclipse.ui.workbench.compatibility_3.2.0.I20060605-1400/@dot"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.eclipse.ui.workbench.compatibility_3.2.0.I20060605-1400/compatibility.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/com.ibm.icu_3.4.4.1.jar"/>
+			<pathelement path="${build.result.folder}/../org.eclipse.help/bin"/>
+			<pathelement path="${build.result.folder}/../org.eclipse.help/@dot"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.eclipse.core.expressions_3.2.0.v20060605-1400.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.eclipse.core.resources_3.2.0.v20060603.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.eclipse.core.resources.compatibility_3.2.0.v20060603.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.eclipse.core.resources.win32_3.2.0.v20060603.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.eclipse.core.runtime.compatibility_3.1.100.v20060603.jar"/>
+			<pathelement path="${build.result.folder}/../org.eclipse.update.configurator/bin"/>
+			<pathelement path="${build.result.folder}/../org.eclipse.update.configurator/@dot"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.eclipse.ant.core_3.1.100.v20060531.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.eclipse.core.variables_3.1.100.v20060605.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.eclipse.core.filesystem_1.0.0.v20060603.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.eclipse.core.filesystem.win32.x86_1.0.0.v20060603.jar"/>
+			<pathelement path="${build.result.folder}/../de.mmeggs.macrodeck.lca/target/"/>
+			<pathelement path="${build.result.folder}/../de.mmeggs.macrodeck.lca/@dot"/>
+			<pathelement path="${build.result.folder}/../de.mmeggs.macrodeck.lca/target"/>
+			<pathelement path="${build.result.folder}/../de.mmeggs.macrodeck.lca/lib/commons-httpclient-3.0.1.jar"/>
+			<pathelement path="${build.result.folder}/../de.mmeggs.macrodeck.lca/lib/commons-codec-1.3.jar"/>
+			<pathelement path="../de.mmeggs.macrodeck.lca/lib/commons-httpclient-3.0.1.jar"/>
+			<pathelement path="../de.mmeggs.macrodeck.lca/lib/commons-codec-1.3.jar"/>
+			<pathelement path="${build.result.folder}/../org.eclipse.ui.intro/bin"/>
+			<pathelement path="${build.result.folder}/../org.eclipse.ui.intro/@dot"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.apache.lucene_1.4.103.v20060601/lucene-1.4.3.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.apache.lucene_1.4.103.v20060601/parser.jar"/>
+			<pathelement path="../org.eclipse.help.base/bin"/>
+			<pathelement path="../org.eclipse.help.base/@dot"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.eclipse.help.appserver_3.1.100.v20060602.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.eclipse.ui.forms_3.2.0.v20060602.jar"/>
+			<pathelement path="${build.result.folder}/../org.eclipse.update.core/bin"/>
+			<pathelement path="${build.result.folder}/../org.eclipse.update.core/@dot"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.eclipse.update.core.win32_3.2.0.v20060605.jar"/>
+			<pathelement path="${build.result.folder}/../org.eclipse.update.scheduler/bin"/>
+			<pathelement path="${build.result.folder}/../org.eclipse.update.scheduler/@dot"/>
+			<pathelement path="${build.result.folder}/../org.eclipse.update.ui/bin"/>
+			<pathelement path="${build.result.folder}/../org.eclipse.update.ui/@dot"/>
+			<pathelement path="${build.result.folder}/../../../tools/eclipse/eclipse-3.2/plugins/Axis2_Codegen_Wizard_1.2.0/bin/"/>
+			<pathelement path="${build.result.folder}/../Axis2_Codegen_Wizard/bin/"/>
+			<pathelement path="${build.result.folder}/../../../tools/eclipse/eclipse-3.2/plugins/Axis2_Codegen_Wizard_1.2.0/Axis2CodegenWizard.jar"/>
+			<pathelement path="${build.result.folder}/../Axis2_Codegen_Wizard/Axis2CodegenWizard.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/Axis2_Codegen_Wizard_1.2.0/lib/annogen-0.1.0.jar"/>
+			<pathelement path="${build.result.folder}/../Axis2_Codegen_Wizard/lib/annogen-0.1.0.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/Axis2_Codegen_Wizard_1.2.0/lib/axiom-dom-1.0.jar"/>
+			<pathelement path="${build.result.folder}/../Axis2_Codegen_Wizard/lib/axiom-dom-1.0.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/Axis2_Codegen_Wizard_1.2.0/lib/axiom-impl-1.0.jar"/>
+			<pathelement path="${build.result.folder}/../Axis2_Codegen_Wizard/lib/axiom-impl-1.0.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/Axis2_Codegen_Wizard_1.2.0/lib/axis2-adb-1.0.jar"/>
+			<pathelement path="${build.result.folder}/../Axis2_Codegen_Wizard/lib/axis2-adb-1.0.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/Axis2_Codegen_Wizard_1.2.0/lib/axis2-codegen-1.0.jar"/>
+			<pathelement path="${build.result.folder}/../Axis2_Codegen_Wizard/lib/axis2-codegen-1.0.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/Axis2_Codegen_Wizard_1.2.0/lib/axis2-common-1.0.jar"/>
+			<pathelement path="${build.result.folder}/../Axis2_Codegen_Wizard/lib/axis2-common-1.0.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/Axis2_Codegen_Wizard_1.2.0/lib/axis2-core-1.0.jar"/>
+			<pathelement path="${build.result.folder}/../Axis2_Codegen_Wizard/lib/axis2-core-1.0.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/Axis2_Codegen_Wizard_1.2.0/lib/axis2-java2wsdl-1.0.jar"/>
+			<pathelement path="${build.result.folder}/../Axis2_Codegen_Wizard/lib/axis2-java2wsdl-1.0.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/Axis2_Codegen_Wizard_1.2.0/lib/axis2-jibx-1.0.jar"/>
+			<pathelement path="${build.result.folder}/../Axis2_Codegen_Wizard/lib/axis2-jibx-1.0.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/Axis2_Codegen_Wizard_1.2.0/lib/axis2-xmlbeans-1.0.jar"/>
+			<pathelement path="${build.result.folder}/../Axis2_Codegen_Wizard/lib/axis2-xmlbeans-1.0.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/Axis2_Codegen_Wizard_1.2.0/lib/commons-logging-1.0.4.jar"/>
+			<pathelement path="${build.result.folder}/../Axis2_Codegen_Wizard/lib/commons-logging-1.0.4.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/Axis2_Codegen_Wizard_1.2.0/lib/geronimo-spec-activation-1.0.2-rc4.jar"/>
+			<pathelement path="${build.result.folder}/../Axis2_Codegen_Wizard/lib/geronimo-spec-activation-1.0.2-rc4.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/Axis2_Codegen_Wizard_1.2.0/lib/jakarta-oro-2.0.8.jar"/>
+			<pathelement path="${build.result.folder}/../Axis2_Codegen_Wizard/lib/jakarta-oro-2.0.8.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/Axis2_Codegen_Wizard_1.2.0/lib/jalopy-1.0b11.jar"/>
+			<pathelement path="${build.result.folder}/../Axis2_Codegen_Wizard/lib/jalopy-1.0b11.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/Axis2_Codegen_Wizard_1.2.0/lib/jaxme2-0.5.1.jar"/>
+			<pathelement path="${build.result.folder}/../Axis2_Codegen_Wizard/lib/jaxme2-0.5.1.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/Axis2_Codegen_Wizard_1.2.0/lib/jaxmeapi-0.5.1.jar"/>
+			<pathelement path="${build.result.folder}/../Axis2_Codegen_Wizard/lib/jaxmeapi-0.5.1.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/Axis2_Codegen_Wizard_1.2.0/lib/jdom.jar"/>
+			<pathelement path="${build.result.folder}/../Axis2_Codegen_Wizard/lib/jdom.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/Axis2_Codegen_Wizard_1.2.0/lib/jibx-bind-1.1-beta3.jar"/>
+			<pathelement path="${build.result.folder}/../Axis2_Codegen_Wizard/lib/jibx-bind-1.1-beta3.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/Axis2_Codegen_Wizard_1.2.0/lib/jibx-run-1.1-beta3.jar"/>
+			<pathelement path="${build.result.folder}/../Axis2_Codegen_Wizard/lib/jibx-run-1.1-beta3.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/Axis2_Codegen_Wizard_1.2.0/lib/log4j-1.2.8.jar"/>
+			<pathelement path="${build.result.folder}/../Axis2_Codegen_Wizard/lib/log4j-1.2.8.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/Axis2_Codegen_Wizard_1.2.0/lib/neethi-1.0.1.jar"/>
+			<pathelement path="${build.result.folder}/../Axis2_Codegen_Wizard/lib/neethi-1.0.1.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/Axis2_Codegen_Wizard_1.2.0/lib/stax-api-1.0.jar"/>
+			<pathelement path="${build.result.folder}/../Axis2_Codegen_Wizard/lib/stax-api-1.0.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/Axis2_Codegen_Wizard_1.2.0/lib/wsdl4j-1.5.2.jar"/>
+			<pathelement path="${build.result.folder}/../Axis2_Codegen_Wizard/lib/wsdl4j-1.5.2.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/Axis2_Codegen_Wizard_1.2.0/lib/wstx-asl-2.9.3.jar"/>
+			<pathelement path="${build.result.folder}/../Axis2_Codegen_Wizard/lib/wstx-asl-2.9.3.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/Axis2_Codegen_Wizard_1.2.0/lib/xbean-2.1.0.jar"/>
+			<pathelement path="${build.result.folder}/../Axis2_Codegen_Wizard/lib/xbean-2.1.0.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/Axis2_Codegen_Wizard_1.2.0/lib/XmlSchema-1.0.2.jar"/>
+			<pathelement path="${build.result.folder}/../Axis2_Codegen_Wizard/lib/XmlSchema-1.0.2.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/Axis2_Codegen_Wizard_1.2.0/lib/axiom-api-1.0.jar"/>
+			<pathelement path="${build.result.folder}/../Axis2_Codegen_Wizard/lib/axiom-api-1.0.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.eclipse.ui.ide_3.2.0.I20060605-1400.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.eclipse.ui.win32_3.2.0.I20060605-1400.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.eclipse.ui.views_3.2.0.I20060605-1400.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.apache.ant_1.6.5/lib/ant.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.apache.ant_1.6.5/lib/ant-antlr.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.apache.ant_1.6.5/lib/ant-apache-bcel.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.apache.ant_1.6.5/lib/ant-apache-bsf.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.apache.ant_1.6.5/lib/ant-apache-log4j.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.apache.ant_1.6.5/lib/ant-apache-oro.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.apache.ant_1.6.5/lib/ant-apache-regexp.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.apache.ant_1.6.5/lib/ant-apache-resolver.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.apache.ant_1.6.5/lib/ant-commons-logging.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.apache.ant_1.6.5/lib/ant-commons-net.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.apache.ant_1.6.5/lib/ant-icontract.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.apache.ant_1.6.5/lib/ant-jai.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.apache.ant_1.6.5/lib/ant-javamail.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.apache.ant_1.6.5/lib/ant-jdepend.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.apache.ant_1.6.5/lib/ant-jmf.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.apache.ant_1.6.5/lib/ant-jsch.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.apache.ant_1.6.5/lib/ant-junit.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.apache.ant_1.6.5/lib/ant-launcher.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.apache.ant_1.6.5/lib/ant-netrexx.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.apache.ant_1.6.5/lib/ant-nodeps.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.apache.ant_1.6.5/lib/ant-starteam.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.apache.ant_1.6.5/lib/ant-stylebook.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.apache.ant_1.6.5/lib/ant-swing.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.apache.ant_1.6.5/lib/ant-trax.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.apache.ant_1.6.5/lib/ant-vaj.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.apache.ant_1.6.5/lib/ant-weblogic.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.apache.ant_1.6.5/lib/ant-xalan1.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.apache.ant_1.6.5/lib/ant-xslp.jar"/>
+			<pathelement path="../../../tools/eclipse/eclipse-3.2/plugins/org.junit_3.8.1/junit.jar"/>
+		</path>
+		<!-- compile the source code -->
+		<javac destdir="${temp.folder}/@dot.bin" failonerror="${javacFailOnError}" verbose="${javacVerbose}" debug="${javacDebugInfo}" includeAntRuntime="no" bootclasspath="${bundleBootClasspath}" source="${bundleJavacSource}" target="${bundleJavacTarget}"		>
+			<compilerarg line="${compilerArg}" compiler="${build.compiler}"/>
+			<classpath refid="@dot.classpath" />
+			<src path="src/"			/>
+			<compilerarg value="@${basedir}/javaCompiler...args" compiler="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+			<compilerarg line="-log '${temp.folder}/@dot.bin${logExtension}'" compiler="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+		</javac>
+		<!-- Copy necessary resources -->
+		<copy todir="${temp.folder}/@dot.bin" failonerror="true" overwrite="false">
+			<fileset dir="src/" excludes="**/*.java, **/package.htm*"			/>
+		</copy>
+		<mkdir dir="${build.result.folder}"/>
+		<copy todir="${build.result.folder}/@dot" failonerror="true" overwrite="false">
+			<fileset dir="${temp.folder}/@dot.bin"			/>
+		</copy>
+		<delete dir="${temp.folder}/@dot.bin"/>
+	</target>
+
+	<target name="src.zip" depends="init" unless="src.zip">
+		<mkdir dir="${build.result.folder}"/>
+		<zip destfile="${build.result.folder}/src.zip" filesonly="false" whenempty="skip" update="false">
+			<fileset dir="src/" includes="**/*.java"			/>
+		</zip>
+	</target>
+
+	<target name="build.jars" depends="init" description="Build all the jars for the plug-in: de.mmeggs.macrodeck.browser.firefox.">
+		<available property="@dot" file="${build.result.folder}/@dot"/>
+		<antcall target="@dot"/>
+	</target>
+
+	<target name="build.sources" depends="init">
+		<available property="src.zip" file="${build.result.folder}/src.zip"/>
+		<antcall target="src.zip"/>
+	</target>
+
+	<target name="gather.bin.parts" depends="init" if="destination.temp.folder">
+		<mkdir dir="${destination.temp.folder}/de.mmeggs.macrodeck.browser.firefox_1.0.0"/>
+		<copy todir="${destination.temp.folder}/de.mmeggs.macrodeck.browser.firefox_1.0.0" failonerror="true" overwrite="false">
+			<fileset dir="${build.result.folder}/@dot" includes="**"			/>
+		</copy>
+		<copy todir="${destination.temp.folder}/de.mmeggs.macrodeck.browser.firefox_1.0.0" failonerror="true" overwrite="false">
+			<fileset dir="${basedir}" includes="plugin.xml,META-INF/,icons/"			/>
+		</copy>
+	</target>
+
+	<target name="build.zips" depends="init">
+	</target>
+
+	<target name="gather.sources" depends="init" if="destination.temp.folder">
+		<mkdir dir="${destination.temp.folder}/de.mmeggs.macrodeck.browser.firefox_1.0.0"/>
+		<copy file="${build.result.folder}/src.zip" todir="${destination.temp.folder}/de.mmeggs.macrodeck.browser.firefox_1.0.0" failonerror="false" overwrite="false"/>
+	</target>
+
+	<target name="gather.logs" depends="init" if="destination.temp.folder">
+		<mkdir dir="${destination.temp.folder}/de.mmeggs.macrodeck.browser.firefox_1.0.0"/>
+		<copy file="${temp.folder}/@dot.bin${logExtension}" todir="${destination.temp.folder}/de.mmeggs.macrodeck.browser.firefox_1.0.0" failonerror="false" overwrite="false"/>
+	</target>
+
+	<target name="clean" depends="init" description="Clean the plug-in: de.mmeggs.macrodeck.browser.firefox of all the zips, jars and logs created.">
+		<delete dir="${build.result.folder}/@dot"/>
+		<delete file="${build.result.folder}/src.zip"/>
+		<delete file="${plugin.destination}/de.mmeggs.macrodeck.browser.firefox_1.0.0.jar"/>
+		<delete file="${plugin.destination}/de.mmeggs.macrodeck.browser.firefox_1.0.0.zip"/>
+		<delete dir="${temp.folder}"/>
+	</target>
+
+	<target name="refresh" depends="init" if="eclipse.running" description="Refresh this folder.">
+		<eclipse.convertPath fileSystemPath="C:/dev/ws/ws_ebay/de.mmeggs.macrodeck.browser.firefox" property="resourcePath"/>
+		<eclipse.refreshLocal resource="${resourcePath}" depth="infinite"/>
+	</target>
+
+	<target name="zip.plugin" depends="init" description="Create a zip containing all the elements for the plug-in: de.mmeggs.macrodeck.browser.firefox.">
+		<delete dir="${temp.folder}"/>
+		<mkdir dir="${temp.folder}"/>
+		<antcall target="build.jars"/>
+		<antcall target="build.sources"/>
+		<antcall target="gather.bin.parts">
+			<param name="destination.temp.folder" value="${temp.folder}/"/>
+		</antcall>
+		<antcall target="gather.sources">
+			<param name="destination.temp.folder" value="${temp.folder}/"/>
+		</antcall>
+		<delete>
+			<fileset dir="${temp.folder}" includes="**/*.bin${logExtension}"			/>
+		</delete>
+		<zip destfile="${plugin.destination}/de.mmeggs.macrodeck.browser.firefox_1.0.0.zip" basedir="${temp.folder}" filesonly="true" whenempty="skip" update="false"/>
+		<delete dir="${temp.folder}"/>
+	</target>
+
+</project>
