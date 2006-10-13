@@ -37,6 +37,13 @@
 - Settings Page for Logindata
 - Documentation for extension point
 
+13.10.2006:
+- renamed all plugins/projects/packages to com.macrodeck...
+- added original icons
+- added Tray support
+	- added Window visible/invisible handling according to tray
+
+
 - TODOs:
 	- setup Update site on server
 		- Problems with update site
