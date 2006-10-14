@@ -8,10 +8,10 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 
-import com.macrodeck.lca.sync.ui.settings.EmptyPreferencePage;
+import com.macrodeck.lca.sync.ui.settings.WorkbenchPreferencePage;
 
 
-public class PreferencePage extends EmptyPreferencePage {
+public class PreferencePage extends WorkbenchPreferencePage {
 
 	public static String[] CHECK_LABELS = new String[] {
 		"Bookmarks", "Cookies", "Profile" };
