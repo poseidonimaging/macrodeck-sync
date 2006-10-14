@@ -15,7 +15,7 @@ import org.eclipse.ui.internal.WorkbenchPlugin;
 import org.eclipse.ui.internal.registry.IWorkbenchRegistryConstants;
 
 import com.macrodeck.lca.sync.SyncPlugin;
-import com.macrodeck.lca.sync.ui.settings.EmptyPreferencePage;
+import com.macrodeck.lca.sync.ui.settings.WorkbenchPreferencePage;
 
 
 
@@ -75,7 +75,7 @@ public class SyncPluginManager {
 						WorkbenchMessages.PreferenceNode_errorTitle,
 						WorkbenchMessages.PreferenceNode_errorMessage, e
 								.getStatus());*/
-				page = new EmptyPreferencePage();
+				page = new WorkbenchPreferencePage();
 			}
 
 			// page.init(PlatformUI.getWorkbench());

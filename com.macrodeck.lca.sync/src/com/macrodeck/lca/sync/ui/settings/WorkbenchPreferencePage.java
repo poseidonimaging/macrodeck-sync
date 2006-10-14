@@ -10,7 +10,7 @@ import org.eclipse.swt.widgets.Control;
 import com.macrodeck.lca.sync.SyncPlugin;
 
 
-public class EmptyPreferencePage extends PreferencePage {
+public class WorkbenchPreferencePage extends PreferencePage {
 
 	protected Control createContents(Composite parent) {
 		noDefaultAndApplyButton();
