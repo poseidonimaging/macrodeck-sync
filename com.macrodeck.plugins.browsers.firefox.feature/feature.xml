@@ -90,7 +90,7 @@ THE ACCOMPANYING PROGRAM IS PROVIDED UNDER THE TERMS OF THIS COMMON PUBLIC LICEN
 
    <url>
       <update label="Macrodeck Sync Plugins Update Site" url="http://www.macrodeck.com/sync/update"/>
-      <discovery label="Macrodeck Sync Plugins Update Site" url="http://www.macrodeck.com/sync/update"/>
+      <discovery label="Macrodeck Sync Plugins Update Site" url="http://update.macrodeck.com"/>
    </url>
 
    <includes
