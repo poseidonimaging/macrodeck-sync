@@ -65,10 +65,13 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
             item.setImage(image);
             final Menu menu = new Menu(window.getShell(), SWT.POP_UP);
             MenuItem menuItem = new MenuItem(menu, SWT.PUSH);
-            menuItem.setText("&Synchronize");
+            menuItem.setText("&Synchronize All");
             menuItem.addSelectionListener(new SelectionAdapter(){
                 public void widgetSelected(SelectionEvent e) {
-                    new SyncAllAction().run(null);
+                    window.getShell().setVisible(true);
+                    SyncAllAction sa = new SyncAllAction();
+                    sa.init(window);
+                    sa.run(null);
                 }
             });
             menuItem = new MenuItem(menu, SWT.PUSH);

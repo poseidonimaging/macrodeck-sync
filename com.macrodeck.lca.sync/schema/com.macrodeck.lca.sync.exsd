@@ -84,10 +84,10 @@
          <attribute name="class" type="string" use="required">
             <annotation>
                <documentation>
-                  This implementation class has to extend com.macrodeck.lca.ui.settings.EmptyPreferencePage. This offers the frame for displaying any plugin specific properties.
+                  This implementation class has to extend com.macrodeck.lca.sync.ui.settings.WorkbenchPreferencePage. This offers the frame for displaying any plugin specific properties.
                </documentation>
                <appInfo>
-                  <meta.attribute kind="java" basedOn="com.macrodeck.lca.ui.settings.EmptyPreferencePage"/>
+                  <meta.attribute kind="java" basedOn="com.macrodeck.lca.sync.ui.settings.WorkbenchPreferencePage"/>
                </appInfo>
             </annotation>
          </attribute>
@@ -111,10 +111,10 @@
          <attribute name="class" type="string" use="required">
             <annotation>
                <documentation>
-                  This action class has to extend com.macrodeck.lca.actions.SyncAction. It is responible to collect the data from its device scope.
+                  This action class has to extend com.macrodeck.lca.sync.actions.SyncAction. It is responible to collect the data from its device scope.
                </documentation>
                <appInfo>
-                  <meta.attribute kind="java" basedOn="com.macrodeck.lca.actions.SyncAction"/>
+                  <meta.attribute kind="java" basedOn="com.macrodeck.sync.lca.actions.SyncAction"/>
                </appInfo>
             </annotation>
          </attribute>
@@ -145,7 +145,7 @@
 		            id=&quot;com.macrodeck.browser&quot;
 		            label=&quot;Browser&quot;/&gt;
 		      &lt;settingsPage
-		            class=&quot;com.macrodeck.browser.ie.PreferencePage&quot;
+		            class=&quot;com.macrodeck.plugins.browsers.ie.PreferencePage&quot;
 		            description=&quot;Synchronize your Internet Explorer bookmarks&quot;/&gt;
 		      &lt;syncAction class=&quot;com.macrodeck.plugins.browsers.ie.actions.BrowserSyncAction&quot;/&gt;
 		   &lt;/extension&gt;
