@@ -42,6 +42,10 @@
 - added original icons
 - added Tray support
 	- added Window visible/invisible handling according to tray
+- added implementation to import bookmarks from Firefox
+	- preference page for installation location is necessry - possible to find it out automatically
+- added SyncService Interface
+- added authcode generation with SHA-512
 
 
 - TODOs:
