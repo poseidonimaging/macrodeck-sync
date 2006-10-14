@@ -11,7 +11,7 @@
       <settingsPage
             class="com.macrodeck.plugins.mailclients.outlook.PreferencePage"
             description="Sync Oulook data with Macrodeck"/>
-      <syncAction class="com.macrodeck.mail.outlook.actions.SyncOutlookDataAction"/>
+      <syncAction class="com.macrodeck.plugins.mailclients.outlook.actions.SyncOutlookDataAction"/>
    </extension>
 
 </plugin>

@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Outlook
 Bundle-SymbolicName: com.macrodeck.plugins.mailclients.outlook;singleton:=true
 Bundle-Version: 1.0.0
-Bundle-Activator: com.macrodeck.plugins.mailclients.outlook.Activator
+Bundle-Activator: com.macrodeck.plugins.mailclients.outlook.OutlookSyncPlugin
 Bundle-Vendor: mmeggs
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.ui,

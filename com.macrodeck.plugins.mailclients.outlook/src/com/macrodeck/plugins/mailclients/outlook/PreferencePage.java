@@ -1,45 +1,39 @@
 package com.macrodeck.plugins.mailclients.outlook;
 
 import org.eclipse.jface.preference.IPreferenceStore;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.Composite;
 
-import com.macrodeck.lca.sync.ui.settings.WorkbenchPreferencePage;
+import com.macrodeck.lca.sync.ui.settings.CheckPreferencePage;
 
 
-public class PreferencePage extends WorkbenchPreferencePage {
+public class PreferencePage extends CheckPreferencePage {
 
-	public static String[] CHECK_LABELS = new String[] { "Contacts",
-			"Messages", "Calenders", "Events" };
+    public static final String P_CONTACTS = "Contacts";
+    public static final String P_MESSAGES = "Messages";
+    public static final String P_CALENDERS = "Calenders";
+    public static final String P_EVENTS = "Events";
+    
+    public static String[] CHECK_LABELS = new String[] { P_CONTACTS,
+        P_MESSAGES, P_CALENDERS, P_EVENTS };
 
-	protected void createMainContents(Composite mainComposite) {
+    /**
+     * set default values for prefernce properties
+     */
+    public PreferencePage() {
+        getPreferenceStore().setDefault(P_CONTACTS, false);
+        getPreferenceStore().setDefault(P_MESSAGES, false);
+        getPreferenceStore().setDefault(P_CALENDERS, false);
+        getPreferenceStore().setDefault(P_EVENTS, false);
+    }
+    
+    protected IPreferenceStore doGetPreferenceStore() {
+        return OutlookSyncPlugin.getDefault().getPreferenceStore();
+    }
 
-		for (int i = 0; i < CHECK_LABELS.length; i++) {
-			final int index = i;
-			final Button checkbox = new Button(mainComposite, SWT.CHECK | SWT.LEFT);
+    public String[] getLabels() {
+        return CHECK_LABELS;
+    }
 
-			checkbox.setSelection(getPreferenceStore().getBoolean(
-					CHECK_LABELS[index].toLowerCase()));
-
-			checkbox.setText(CHECK_LABELS[index]);
-			GridData gd = new GridData(GridData.FILL_HORIZONTAL);
-			gd.horizontalSpan = 2;
-			checkbox.setLayoutData(gd);
-			checkbox.addSelectionListener(new SelectionAdapter() {
-				public void widgetSelected(SelectionEvent e) {
-					getPreferenceStore().setValue(CHECK_LABELS[index].toLowerCase(),
-							checkbox.getEnabled());
-				}
-			});
-		}
-	}
-
-	protected IPreferenceStore doGetPreferenceStore() {
-		return Activator.getDefault().getPreferenceStore();
-	}
-
+    protected void savePluginPreferences() {
+        OutlookSyncPlugin.getDefault().savePluginPreferences();
+    }
 }
