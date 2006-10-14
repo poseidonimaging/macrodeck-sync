@@ -12,7 +12,7 @@
    <feature url="features/com.macrodeck.plugins.browsers.ie.feature_1.0.0.jar" id="com.macrodeck.plugins.browsers.ie.feature" version="1.0.0">
       <category name="Browsers"/>
    </feature>
-   <feature url="features/com.macrodeck.plugins.mailclients.outlook.feature_1.0.1.jar" id="com.macrodeck.plugins.mailclients.outlook.feature" version="1.0.1" os="win32" ws="win32" nl="en_US" arch="x86,x86_64">
+   <feature url="features/com.macrodeck.plugins.mailclients.outlook.feature_1.0.1.jar" id="com.macrodeck.plugins.mailclients.outlook.feature" version="1.0.1">
       <category name="MailClients"/>
    </feature>
    <category-def name="Sync Application" label="Sync Application">
