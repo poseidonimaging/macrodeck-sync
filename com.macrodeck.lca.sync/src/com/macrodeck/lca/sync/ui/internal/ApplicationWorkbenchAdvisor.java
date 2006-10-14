@@ -4,7 +4,7 @@ import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
 import org.eclipse.ui.application.WorkbenchAdvisor;
 import org.eclipse.ui.application.WorkbenchWindowAdvisor;
 
-import com.macrodeck.lca.sync.LCActivator;
+import com.macrodeck.lca.sync.SyncPlugin;
 
 /**
  * This workbench advisor creates the window advisor, and specifies
@@ -12,7 +12,7 @@ import com.macrodeck.lca.sync.LCActivator;
  */
 public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 	
-	private static final String PERSPECTIVE_ID = LCActivator.PLUGIN_ID+".perspective";
+	private static final String PERSPECTIVE_ID = SyncPlugin.PLUGIN_ID+".perspective";
 
     public WorkbenchWindowAdvisor createWorkbenchWindowAdvisor(IWorkbenchWindowConfigurer configurer) {
         return new ApplicationWorkbenchWindowAdvisor(configurer);
@@ -24,6 +24,6 @@ public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
     
     public boolean preShutdown() {
         getWorkbenchConfigurer().getWorkbench().getActiveWorkbenchWindow().getShell().setVisible(false);
-        return LCActivator.getDefault().isExitPreformed();
+        return SyncPlugin.getDefault().isExitPreformed();
     }
 }

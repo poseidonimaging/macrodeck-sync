@@ -19,7 +19,7 @@ import org.eclipse.ui.application.IActionBarConfigurer;
 import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
 import org.eclipse.ui.application.WorkbenchWindowAdvisor;
 
-import com.macrodeck.lca.sync.LCActivator;
+import com.macrodeck.lca.sync.SyncPlugin;
 import com.macrodeck.lca.sync.actions.SyncAllAction;
 
 public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
@@ -61,7 +61,7 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
         tray = display.getSystemTray();
         if(tray != null) {
             TrayItem item = new TrayItem(tray, SWT.NONE);
-            Image image = LCActivator.getImageDescriptor("/icons/m-16x16.gif").createImage();
+            Image image = SyncPlugin.getImageDescriptor("/icons/m-16x16.gif").createImage();
             item.setImage(image);
             final Menu menu = new Menu(window.getShell(), SWT.POP_UP);
             MenuItem menuItem = new MenuItem(menu, SWT.PUSH);
@@ -83,6 +83,7 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
             menuItem.addSelectionListener(new SelectionAdapter(){
                 public void widgetSelected(SelectionEvent e) {
                     window.getShell().setVisible(true);
+                    window.getShell().setActive();
                 }
             });
             

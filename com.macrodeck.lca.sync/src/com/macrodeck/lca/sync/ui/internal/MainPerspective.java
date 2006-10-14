@@ -3,7 +3,7 @@ package com.macrodeck.lca.sync.ui.internal;
 import org.eclipse.ui.IPageLayout;
 import org.eclipse.ui.IPerspectiveFactory;
 
-import com.macrodeck.lca.sync.LCActivator;
+import com.macrodeck.lca.sync.SyncPlugin;
 
 public class MainPerspective implements IPerspectiveFactory {
 
@@ -12,7 +12,7 @@ public class MainPerspective implements IPerspectiveFactory {
 		layout.setEditorAreaVisible(false);
 		
 		layout.addStandaloneView(MainView.ID,  false, IPageLayout.LEFT, 1f, editorArea);
-		layout.addFastView(LCActivator.PLUGIN_ID+".standby");
+		layout.addFastView(SyncPlugin.PLUGIN_ID+".standby");
 		/*IFolderLayout folder = layout.createFolder("plugins", IPageLayout.TOP, 0.5f, editorArea);
 		folder.addPlaceholder(View.ID + ":*");
 		folder.addView(View.ID);

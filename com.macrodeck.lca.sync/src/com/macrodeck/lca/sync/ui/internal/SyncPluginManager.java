@@ -14,7 +14,7 @@ import org.eclipse.jface.preference.PreferenceNode;
 import org.eclipse.ui.internal.WorkbenchPlugin;
 import org.eclipse.ui.internal.registry.IWorkbenchRegistryConstants;
 
-import com.macrodeck.lca.sync.LCActivator;
+import com.macrodeck.lca.sync.SyncPlugin;
 import com.macrodeck.lca.sync.ui.settings.EmptyPreferencePage;
 
 
@@ -101,7 +101,7 @@ public class SyncPluginManager {
 		// colecting all macrodeck lca plugins
 		root = new TreeObject();
 		IExtensionPoint extensionPoint = Platform.getExtensionRegistry()
-				.getExtensionPoint(LCActivator.EXT_POINT_SYNC);
+				.getExtensionPoint(SyncPlugin.EXT_POINT_SYNC);
 		IExtension[] extensions = extensionPoint.getExtensions();
 		// get through all plugins which extend the sync ep.
 		for (int i = 0; i < extensions.length; i++) {

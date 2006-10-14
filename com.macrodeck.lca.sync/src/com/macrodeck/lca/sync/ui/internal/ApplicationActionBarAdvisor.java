@@ -26,7 +26,7 @@ import org.eclipse.ui.application.ActionBarAdvisor;
 import org.eclipse.ui.application.IActionBarConfigurer;
 import org.eclipse.ui.internal.IntroAction;
 
-import com.macrodeck.lca.sync.LCActivator;
+import com.macrodeck.lca.sync.SyncPlugin;
 import com.macrodeck.lca.sync.actions.ExitAction;
 import com.macrodeck.lca.sync.actions.InstallUpdateWizardAction;
 import com.macrodeck.lca.sync.actions.SettingsDialogAction;
@@ -129,7 +129,7 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 	private List getConfigElems() {
 		List confElemList = new ArrayList();
 		IExtensionPoint extensionPoint = Platform.getExtensionRegistry()
-				.getExtensionPoint(LCActivator.EXT_POINT_SYNC);
+				.getExtensionPoint(SyncPlugin.EXT_POINT_SYNC);
 		IExtension[] extensions = extensionPoint.getExtensions();
 		// get through all plugins which extend the sync ep.
 		for (int i = 0; i < extensions.length; i++) {

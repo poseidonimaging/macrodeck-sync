@@ -69,7 +69,7 @@ import org.eclipse.swt.widgets.Tree;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
 
-import com.macrodeck.lca.sync.LCActivator;
+import com.macrodeck.lca.sync.SyncPlugin;
 
 
 /**
@@ -80,7 +80,7 @@ import com.macrodeck.lca.sync.LCActivator;
  */
 public class MainView extends ViewPart implements IPreferencePageContainer, IPageChangeProvider {
 	
-	public static final String ID = LCActivator.PLUGIN_ID+".navigationView";
+	public static final String ID = SyncPlugin.PLUGIN_ID+".navigationView";
 	
 	/**
 	 * Layout for the page container.
@@ -677,7 +677,7 @@ public class MainView extends ViewPart implements IPreferencePageContainer, IPag
 	 * @see org.eclipse.jface.preference.IPreferencePageContainer#getPreferenceStore()
 	 */
 	public IPreferenceStore getPreferenceStore() {
-		this.preferenceStore = LCActivator.getDefault().getPreferenceStore();
+		this.preferenceStore = SyncPlugin.getDefault().getPreferenceStore();
 		return preferenceStore;
 	}
 

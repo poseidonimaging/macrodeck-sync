@@ -1,6 +1,6 @@
 package com.macrodeck.lca.sync.ui.internal;
 
-import com.macrodeck.lca.sync.LCActivator;
+import com.macrodeck.lca.sync.SyncPlugin;
 
 /**
  * Interface defining the application's command IDs.
@@ -11,7 +11,7 @@ import com.macrodeck.lca.sync.LCActivator;
  */
 public interface ICommandIds {
 
-	public static final String INSTALL_UPDATE = LCActivator.PLUGIN_ID+".installUpdate";
-	public static final String SETTINGS = LCActivator.PLUGIN_ID+".settings";
+	public static final String INSTALL_UPDATE = SyncPlugin.PLUGIN_ID+".installUpdate";
+	public static final String SETTINGS = SyncPlugin.PLUGIN_ID+".settings";
     
 }
