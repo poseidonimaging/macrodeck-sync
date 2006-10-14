@@ -218,8 +218,8 @@ litigati
    </license>
 
    <url>
-      <update label="Macrodeck Sync Plugins Update Site" url="http://www.macrodeck.com/sync/update"/>
-      <discovery label="Macrodeck LCA Plugins" url="http://www.macrodeck.com/sync/update"/>
+      <update label="Macrodeck Sync Plugins Update Site" url="http://update.macrodeck.com"/>
+      <discovery label="Macrodeck LCA Plugins" url="http://update.macrodeck.com"/>
    </url>
 
    <includes
