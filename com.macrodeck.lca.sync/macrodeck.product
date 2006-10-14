@@ -13,6 +13,7 @@ For more information visit http://www.macrodeck.com
       </text>
    </aboutInfo>
 
+   <windowImages i32="icons/m-16x16-notrans.png, icons/m-16x16-notrans.png, icons/m-32x32-notrans.png"/>
    <configIni use="default"/>
 
    <launcherArgs>
