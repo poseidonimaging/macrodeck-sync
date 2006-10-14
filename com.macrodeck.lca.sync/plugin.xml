@@ -84,6 +84,7 @@
             application="com.macrodeck.lca.sync.application"
             name="Macrodeck Synchronization Client">
           <property name="aboutImage" value="icons/small-shadow-white.png"/> 
+          <property name="windowImages" value="icons/m-16x16-notrans.png, icons/m-16x16-notrans.png, icons/m-32x32-notrans.png"/>
           <property
                 name="aboutText"
                 value="This is the macrodeck client application&#x0A;Version 0.0.1&#x0A;For more information visit http://www.macrodeck.com&#x0A;(C) 2006, Manfred Mayer"/> 
