@@ -27,7 +27,6 @@ import org.eclipse.ui.application.IActionBarConfigurer;
 import org.eclipse.ui.internal.IntroAction;
 
 import com.macrodeck.lca.sync.SyncPlugin;
-import com.macrodeck.lca.sync.actions.ExitAction;
 import com.macrodeck.lca.sync.actions.InstallUpdateWizardAction;
 import com.macrodeck.lca.sync.actions.SettingsDialogAction;
 
@@ -43,7 +42,7 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 	// them
 	// in the fill methods. This ensures that the actions aren't recreated
 	// when fillActionBars is called with FILL_PROXY.
-	private Action exitAction;
+	private IWorkbenchAction exitAction;
 
 	private IWorkbenchAction aboutAction;
 
@@ -67,7 +66,7 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 		// the window is closed.
 
 		try {
-            exitAction = new ExitAction(window);
+            exitAction = ActionFactory.QUIT.create(window);
             register(exitAction);
 
             aboutAction = ActionFactory.ABOUT.create(window);
@@ -145,7 +144,7 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 		return confElemList;
 	}
 
-    public Action getExitAction() {
+    public IWorkbenchAction getExitAction() {
         return this.exitAction;
     }
     

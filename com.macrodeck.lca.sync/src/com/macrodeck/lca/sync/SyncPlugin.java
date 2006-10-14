@@ -32,8 +32,6 @@ public class SyncPlugin extends AbstractUIPlugin {
 
     private static PreferenceManager prefsManager;
 
-    private boolean exitState;
-
     /**
      * The constructor
      */
@@ -109,14 +107,6 @@ public class SyncPlugin extends AbstractUIPlugin {
             }
         }
         return allPluginConfigs;
-    }
-
-    public void setExitState(boolean exitState) {
-        this.exitState = exitState;
-    }
-
-    public boolean isExitPreformed() {
-        return this.exitState;
     }
 
     public void logError(String plugin, String string) {

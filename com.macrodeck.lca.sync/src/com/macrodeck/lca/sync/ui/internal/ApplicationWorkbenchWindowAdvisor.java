@@ -1,8 +1,11 @@
-    package com.macrodeck.lca.sync.ui.internal;
+package com.macrodeck.lca.sync.ui.internal;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
+import org.eclipse.swt.events.ShellEvent;
+import org.eclipse.swt.events.ShellListener;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Display;
@@ -12,7 +15,9 @@ import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swt.widgets.Tray;
 import org.eclipse.swt.widgets.TrayItem;
+import org.eclipse.ui.ISelectionListener;
 import org.eclipse.ui.IWindowListener;
+import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.application.ActionBarAdvisor;
 import org.eclipse.ui.application.IActionBarConfigurer;
@@ -25,6 +30,7 @@ import com.macrodeck.lca.sync.actions.SyncAllAction;
 public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 
     private ApplicationActionBarAdvisor actionAdvisor;
+
     private Tray tray;
 
     public ApplicationWorkbenchWindowAdvisor(IWorkbenchWindowConfigurer configurer) {
@@ -35,7 +41,7 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
         actionAdvisor = new ApplicationActionBarAdvisor(configurer);
         return actionAdvisor;
     }
-    
+
     public void preWindowOpen() {
         IWorkbenchWindowConfigurer configurer = getWindowConfigurer();
         configurer.setShowProgressIndicator(true);
@@ -43,32 +49,47 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
         configurer.setShowCoolBar(false);
         configurer.setShowStatusLine(true);
     }
-    
+
     public void postWindowOpen() {
-        createTray(getWindowConfigurer().getWindow());
+        final IWorkbench workbench = getWindowConfigurer().getWindow().getWorkbench();
+        if (tray == null)
+            createTray(getWindowConfigurer().getWindow());
+        getWindowConfigurer().getWindow().getShell().addShellListener(new ShellListener(){
+            public void shellActivated(ShellEvent e) {
+            }
+            public void shellClosed(ShellEvent e) {
+            }
+            public void shellDeactivated(ShellEvent e) {
+            }
+            public void shellDeiconified(ShellEvent e) {
+            }
+            public void shellIconified(ShellEvent e) {
+               workbench.getActiveWorkbenchWindow().getShell().setVisible(false);
+            }
+        });
     }
-    
+
     public void dispose() {
-        this.tray.dispose();
+        if (tray != null) {
+            this.tray.dispose();
+        }
         super.dispose();
     }
-    
-    
-    
-    
+
     private Tray createTray(final IWorkbenchWindow window) {
         Display display = Display.getDefault();
         tray = display.getSystemTray();
-        if(tray != null) {
+        if (tray != null) {
             TrayItem item = new TrayItem(tray, SWT.NONE);
             Image image = SyncPlugin.getImageDescriptor("/icons/m-16x16.gif").createImage();
             item.setImage(image);
             final Menu menu = new Menu(window.getShell(), SWT.POP_UP);
             MenuItem menuItem = new MenuItem(menu, SWT.PUSH);
             menuItem.setText("&Synchronize All");
-            menuItem.addSelectionListener(new SelectionAdapter(){
+            menuItem.setImage(SyncPlugin.getImageDescriptor("icons/16x16/sync.gif").createImage());
+            menuItem.addSelectionListener(new SelectionAdapter() {
                 public void widgetSelected(SelectionEvent e) {
-                    window.getShell().setVisible(true);
+                    //deiconifyWindow();
                     SyncAllAction sa = new SyncAllAction();
                     sa.init(window);
                     sa.run(null);
@@ -76,35 +97,49 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
             });
             menuItem = new MenuItem(menu, SWT.PUSH);
             menuItem.setText("Settings");
-            menuItem.addSelectionListener(new SelectionAdapter(){
+            menuItem.setImage(SyncPlugin.getImageDescriptor("icons/16x16/settings.png").createImage());
+            menuItem.addSelectionListener(new SelectionAdapter() {
                 public void widgetSelected(SelectionEvent e) {
                     actionAdvisor.getPrefsAction().run();
                 }
             });
             menuItem = new MenuItem(menu, SWT.PUSH);
             menuItem.setText("&Workbench");
-            menuItem.addSelectionListener(new SelectionAdapter(){
+            //menuItem.setImage(SyncPlugin.getImageDescriptor("icons/m-16x16.png").createImage());
+            menuItem.addSelectionListener(new SelectionAdapter() {
                 public void widgetSelected(SelectionEvent e) {
-                    window.getShell().setVisible(true);
-                    window.getShell().setActive();
+                    deiconifyWindow();
                 }
             });
-            
+
             menuItem = new MenuItem(menu, SWT.PUSH);
             menuItem.setText("&Exit");
-            menuItem.addSelectionListener(new SelectionAdapter(){
+            menuItem.addSelectionListener(new SelectionAdapter() {
                 public void widgetSelected(SelectionEvent e) {
                     actionAdvisor.getExitAction().run();
                 }
             });
             item.setToolTipText(window.getShell().getText());
-            item.addListener (SWT.MenuDetect, new Listener () {
-                public void handleEvent (Event event) {
-                    menu.setVisible (true);
+            item.addSelectionListener(new SelectionListener() {
+                public void widgetDefaultSelected(SelectionEvent e) {
+                    deiconifyWindow();
+                }
+                public void widgetSelected(SelectionEvent e) {
+                }
+            });
+
+            item.addListener(SWT.MenuDetect, new Listener() {
+                public void handleEvent(Event event) {
+                    menu.setVisible(true);
                 }
             });
         }
         return tray;
+    }
+
+    protected void deiconifyWindow() {
+        getWindowConfigurer().getWindow().getShell().setVisible(true);
+        getWindowConfigurer().getWindow().getShell().setMinimized(false);
     }
 
 }

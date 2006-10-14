@@ -18,10 +18,6 @@ For more information visit http://www.macrodeck.com
    <launcherArgs>
    </launcherArgs>
 
-   <windowImages i32="/com.macrodeck.lca.sync/icons/m-32x32.png"/>
-   <windowImages i16="/com.macrodeck.lca.sync/icons/m-16x16-notrans.png"/>
-   <windowImages i24="/com.macrodeck.lca.sync/icons/m-24x24-notrans.png"/>
-
    <splash
       location="com.macrodeck.lca.sync"
       startupProgressRect="0,240,628,265"

@@ -21,15 +21,17 @@ public class SyncAllAction extends SyncAction {
 
 	public void run(IAction action) {
 		List configElems = SyncPlugin.getDefault().getAllPluginConfigs("syncAction");
+        StringBuffer allPlugins = new StringBuffer();
 		if (configElems != null) {
 			for (Iterator iter = configElems.iterator(); iter.hasNext();) {
 				IConfigurationElement element = (IConfigurationElement) iter
 						.next();
 				executeAction(element);
+                allPlugins.append(element.getNamespaceIdentifier());
 			}
 		}
 		MessageDialog.openInformation(window.getShell(), Platform.getProduct()
-				.getName(), "All Sync done");
+				.getName(), "Syncactions done:\n"+allPlugins);
 	}
 
 	private void executeAction(IConfigurationElement element) {
