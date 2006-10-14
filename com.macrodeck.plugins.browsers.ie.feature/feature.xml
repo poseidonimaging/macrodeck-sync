@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="com.macrodeck.browser.ie.feature"
+      id="com.macrodeck.plugins.browsers.ie.feature"
       label="Sync IE Feature"
       version="1.0.0"
       provider-name="mmeggs"
