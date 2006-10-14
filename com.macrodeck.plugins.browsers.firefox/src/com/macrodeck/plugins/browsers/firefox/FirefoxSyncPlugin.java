@@ -20,7 +20,7 @@ public class FirefoxSyncPlugin extends AbstractUIPlugin {
 	 */
 	public FirefoxSyncPlugin() {
 		plugin = this;
-	}
+    }
 
 	/*
 	 * (non-Javadoc)
@@ -28,6 +28,9 @@ public class FirefoxSyncPlugin extends AbstractUIPlugin {
 	 */
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
+        getPreferenceStore().setDefault(PreferencePage.P_BOOKMARKS, true);
+        getPreferenceStore().setDefault(PreferencePage.P_COOKIES, false);
+        getPreferenceStore().setDefault(PreferencePage.P_PROFILE, false);
 	}
 
 	/*
@@ -58,4 +61,5 @@ public class FirefoxSyncPlugin extends AbstractUIPlugin {
 	public static ImageDescriptor getImageDescriptor(String path) {
 		return imageDescriptorFromPlugin(PLUGIN_ID, path);
 	}
+    
 }

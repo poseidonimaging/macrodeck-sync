@@ -29,7 +29,7 @@ public class BrowserSyncAction extends SyncAction {
         if (FirefoxSyncPlugin.getDefault().getPreferenceStore().getBoolean(PreferencePage.P_BOOKMARKS)) {
             Bookmarks bookmarks = readBookmarksFromHTML(getProfileLocation());
             //getDataService().sync(bookmarks);
-            MessageDialog.openInformation(this.window.getShell(), FirefoxSyncPlugin.PLUGIN_ID, "Sync done.\n"+bookmarks.toString());
+            MessageDialog.openInformation(this.window.getShell(), FirefoxSyncPlugin.PLUGIN_ID, "Data transfered to Macrodeck.\n"+bookmarks.toString().substring(0, Math.min(150, bookmarks.toString().length())));
         }
     }
 

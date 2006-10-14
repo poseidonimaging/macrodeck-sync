@@ -245,9 +245,9 @@ public class Bookmarks {
         }
         
         public String toString() {
-            StringBuffer sb = new StringBuffer(getName());
+            StringBuffer sb = new StringBuffer(getName()+"\n");
             for (int i = 0; i < getChildCount(); i++) {
-                sb.append(getChildAt(i).toString());
+                sb.append("   "+getChildAt(i).toString()+"\n");
             }
             return sb.toString();
         }

@@ -18,9 +18,6 @@ public class PreferencePage extends CheckPreferencePage {
      * set default values for prefernce properties
      */
     public PreferencePage() {
-        getPreferenceStore().setDefault(P_BOOKMARKS, true);
-        getPreferenceStore().setDefault(P_COOKIES, false);
-        getPreferenceStore().setDefault(P_PROFILE, false);
     }
     
 	protected IPreferenceStore doGetPreferenceStore() {
