@@ -10,7 +10,7 @@ import com.macrodeck.lca.sync.SyncPlugin;
 import com.macrodeck.lca.sync.actions.SyncAction;
 import com.macrodeck.plugins.browsers.firefox.FirefoxSyncPlugin;
 import com.macrodeck.plugins.browsers.firefox.PreferencePage;
-import com.macrodeck.plugins.browsers.firefox.model.Bookmarks;
+import com.macrodeck.plugins.browsers.firefox.model.internal.Bookmarks;
 
 /**
  * Our sample action implements workbench action delegate. The action proxy will be created by the workbench and shown in the UI.
