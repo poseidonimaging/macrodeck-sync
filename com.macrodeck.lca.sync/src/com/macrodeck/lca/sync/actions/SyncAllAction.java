@@ -14,13 +14,13 @@ import org.eclipse.ui.internal.WorkbenchMessages;
 import org.eclipse.ui.internal.WorkbenchPlugin;
 import org.eclipse.ui.internal.registry.IWorkbenchRegistryConstants;
 
-import com.macrodeck.lca.sync.LCActivator;
+import com.macrodeck.lca.sync.SyncPlugin;
 
 
 public class SyncAllAction extends SyncAction {
 
 	public void run(IAction action) {
-		List configElems = LCActivator.getDefault().getAllPluginConfigs("syncAction");
+		List configElems = SyncPlugin.getDefault().getAllPluginConfigs("syncAction");
 		if (configElems != null) {
 			for (Iterator iter = configElems.iterator(); iter.hasNext();) {
 				IConfigurationElement element = (IConfigurationElement) iter

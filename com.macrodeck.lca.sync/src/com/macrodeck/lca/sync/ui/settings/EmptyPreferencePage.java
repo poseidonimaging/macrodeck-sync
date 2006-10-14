@@ -7,7 +7,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 
-import com.macrodeck.lca.sync.LCActivator;
+import com.macrodeck.lca.sync.SyncPlugin;
 
 
 public class EmptyPreferencePage extends PreferencePage {
@@ -23,7 +23,7 @@ public class EmptyPreferencePage extends PreferencePage {
 		mainComposite.setLayout(layout);
 
 		setDescription("synchronization set up");
-		setImageDescriptor(LCActivator.getImageDescriptor("icons/sync.gif"));
+		setImageDescriptor(SyncPlugin.getImageDescriptor("icons/sync.gif"));
 		createMainContents(mainComposite);
 
 		return mainComposite;

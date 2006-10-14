@@ -20,7 +20,7 @@ import org.eclipse.update.search.BackLevelFilter;
 import org.eclipse.update.search.UpdateSearchRequest;
 import org.eclipse.update.search.UpdateSearchScope;
 
-import com.macrodeck.lca.sync.LCActivator;
+import com.macrodeck.lca.sync.SyncPlugin;
 import com.macrodeck.lca.sync.ui.internal.ICommandIds;
 import com.macrodeck.lca.sync.ui.settings.PreferenceConstants;
 
@@ -51,7 +51,7 @@ public class InstallUpdateWizardAction extends Action implements IWorkbenchActio
         // Associate the action with a pre-defined command, to allow key
         // bindings.
         setActionDefinitionId(ICommandIds.INSTALL_UPDATE);
-        setImageDescriptor(LCActivator.getImageDescriptor("/icons/16x16/update-manager.png"));
+        setImageDescriptor(SyncPlugin.getImageDescriptor("/icons/16x16/update-manager.png"));
     }
 
     public void run() {
@@ -75,7 +75,7 @@ public class InstallUpdateWizardAction extends Action implements IWorkbenchActio
                     // return;
                     // }
                     UpdateSearchScope searchScope = new UpdateSearchScope();
-                    String searchSite = LCActivator.getDefault().getPreferenceStore().getString(PreferenceConstants.P_UPDATE_SITE);
+                    String searchSite = SyncPlugin.getDefault().getPreferenceStore().getString(PreferenceConstants.P_UPDATE_SITE);
                     if (searchSite == null || searchSite.trim().equals("")) {
                         searchSite = "http://update.macrodeck.com";
                     }

@@ -5,7 +5,7 @@ import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 
-import com.macrodeck.lca.sync.LCActivator;
+import com.macrodeck.lca.sync.SyncPlugin;
 
 
 /**
@@ -26,11 +26,11 @@ public class UserSettingsPage
 	extends FieldEditorPreferencePage
 	implements IWorkbenchPreferencePage {
 
-	public static final String ID = LCActivator.PLUGIN_ID+".preferences.UserSettingsPage";
+	public static final String ID = SyncPlugin.PLUGIN_ID+".preferences.UserSettingsPage";
 
 	public UserSettingsPage() {
 		super(GRID);
-		setPreferenceStore(LCActivator.getDefault().getPreferenceStore());
+		setPreferenceStore(SyncPlugin.getDefault().getPreferenceStore());
 		setDescription("Please provide your username and password to login to Macrodeck web service:\n");
 	}
 	
@@ -53,7 +53,6 @@ public class UserSettingsPage
 	 * @see org.eclipse.ui.IWorkbenchPreferencePage#init(org.eclipse.ui.IWorkbench)
 	 */
 	public void init(IWorkbench workbench) {
-		
 	}
-	
+    
 }

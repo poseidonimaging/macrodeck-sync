@@ -29,4 +29,12 @@ public class PasswordFieldEditor extends StringFieldEditor {
         }
         return textField;
 	}
+    
+    protected void doStore() {
+        getPreferenceStore().setValue(getPreferenceName(), hash(getTextControl().getText()));
+    }
+
+    private String hash(String password) {
+        return AuthCodeCreator.sha512(password);
+    }
 }

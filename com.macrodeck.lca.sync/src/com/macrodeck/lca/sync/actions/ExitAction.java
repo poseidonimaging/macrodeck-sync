@@ -8,7 +8,7 @@ package com.macrodeck.lca.sync.actions;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.internal.QuitAction;
 
-import com.macrodeck.lca.sync.LCActivator;
+import com.macrodeck.lca.sync.SyncPlugin;
 
 public class ExitAction extends QuitAction {
 
@@ -18,7 +18,7 @@ public class ExitAction extends QuitAction {
    }
 
     public void run() {
-        LCActivator.getDefault().setExitState(true);
+        SyncPlugin.getDefault().setExitState(true);
         super.run();
     }
 }

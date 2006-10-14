@@ -13,7 +13,7 @@ import org.eclipse.ui.internal.Workbench;
 import org.eclipse.ui.internal.dialogs.WorkbenchPreferenceDialog;
 import org.eclipse.ui.internal.intro.impl.model.url.IntroURLParser;
 
-import com.macrodeck.lca.sync.LCActivator;
+import com.macrodeck.lca.sync.SyncPlugin;
 import com.macrodeck.lca.sync.ui.internal.ICommandIds;
 import com.macrodeck.lca.sync.ui.settings.UserSettingsPage;
 
@@ -46,14 +46,14 @@ public class SettingsDialogAction extends Action implements
 		// Associate the action with a pre-defined command, to allow key
 		// bindings.
 		setActionDefinitionId(ICommandIds.SETTINGS);
-		setImageDescriptor(com.macrodeck.lca.sync.LCActivator
+		setImageDescriptor(com.macrodeck.lca.sync.SyncPlugin
 				.getImageDescriptor("/icons/16x16/settings.png"));
 	}
 
 	public void run() {
 		try {
             window.getShell().setVisible(true);
-			final PreferenceManager preferenceManager = LCActivator.getDefault().getPreferenceManager();
+			final PreferenceManager preferenceManager = SyncPlugin.getDefault().getPreferenceManager();
 			Shell parentShell = window.getShell();
 			if (parentShell == null) {
 				// Determine a decent parent shell.

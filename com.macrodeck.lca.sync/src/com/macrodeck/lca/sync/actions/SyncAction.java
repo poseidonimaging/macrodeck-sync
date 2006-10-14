@@ -35,4 +35,12 @@ public abstract class SyncAction implements IWorkbenchWindowActionDelegate{
 	public void init(IWorkbenchWindow window) {
 		this.window = window;
 	}
+    
+    /**
+     * access to Macrodeck dataService  
+     * @return dataService
+     */
+    public ISyncService getSyncService() {
+        throw new RuntimeException("Not implemented yet");
+    }
 }

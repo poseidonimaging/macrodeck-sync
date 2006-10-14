@@ -3,7 +3,7 @@ package com.macrodeck.lca.sync.ui.settings;
 import org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer;
 import org.eclipse.jface.preference.IPreferenceStore;
 
-import com.macrodeck.lca.sync.LCActivator;
+import com.macrodeck.lca.sync.SyncPlugin;
 
 
 /**
@@ -17,7 +17,7 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 	 * @see org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer#initializeDefaultPreferences()
 	 */
 	public void initializeDefaultPreferences() {
-		IPreferenceStore store = LCActivator.getDefault().getPreferenceStore();
+		IPreferenceStore store = SyncPlugin.getDefault().getPreferenceStore();
 		store.setDefault(PreferenceConstants.P_USERNAME,"");
 		store.setDefault(PreferenceConstants.P_PASSWD,"");
 	}
