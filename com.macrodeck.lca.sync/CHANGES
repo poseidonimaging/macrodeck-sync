@@ -46,6 +46,7 @@
 	- preference page for installation location is necessry - possible to find it out automatically
 - added SyncService Interface
 - added authcode generation with SHA-512
+- removed update/install preference page
 
 
 - TODOs:
