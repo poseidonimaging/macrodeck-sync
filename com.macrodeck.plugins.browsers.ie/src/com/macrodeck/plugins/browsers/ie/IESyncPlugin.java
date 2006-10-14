@@ -7,18 +7,18 @@ import org.osgi.framework.BundleContext;
 /**
  * The activator class controls the plug-in life cycle
  */
-public class Activator extends AbstractUIPlugin {
+public class IESyncPlugin extends AbstractUIPlugin {
 
 	// The plug-in ID
 	public static final String PLUGIN_ID = "de.mmeggs.macrodeck.browser.firefox";
 
 	// The shared instance
-	private static Activator plugin;
+	private static IESyncPlugin plugin;
 	
 	/**
 	 * The constructor
 	 */
-	public Activator() {
+	public IESyncPlugin() {
 		plugin = this;
 	}
 
@@ -44,7 +44,7 @@ public class Activator extends AbstractUIPlugin {
 	 *
 	 * @return the shared instance
 	 */
-	public static Activator getDefault() {
+	public static IESyncPlugin getDefault() {
 		return plugin;
 	}
 

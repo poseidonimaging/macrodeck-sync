@@ -1,44 +1,37 @@
 package com.macrodeck.plugins.browsers.ie;
 
 import org.eclipse.jface.preference.IPreferenceStore;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.Composite;
 
-import com.macrodeck.lca.sync.ui.settings.WorkbenchPreferencePage;
+import com.macrodeck.lca.sync.ui.settings.CheckPreferencePage;
 
 
-public class PreferencePage extends WorkbenchPreferencePage {
+public class PreferencePage extends CheckPreferencePage {
 
-	public static String[] CHECK_LABELS = new String[] {
-		"Bookmarks", "Cookies", "Profile" };
-	
-	protected void createMainContents(Composite mainComposite) {
-		for (int i = 0; i < CHECK_LABELS.length; i++) {
-			final int index = i;
-			final Button checkbox = new Button(mainComposite, SWT.CHECK | SWT.LEFT);
+    public static final String P_PROFILE = "Profile";
+    public static final String P_COOKIES = "Cookies";
+    public static final String P_BOOKMARKS = "Bookmarks";
+    
+    public static String[] CHECK_LABELS = new String[] {
+        P_BOOKMARKS, P_COOKIES, P_PROFILE };
+    
+    /**
+     * set default values for prefernce properties
+     */
+    public PreferencePage() {
+        getPreferenceStore().setDefault(P_BOOKMARKS, false);
+        getPreferenceStore().setDefault(P_COOKIES, false);
+        getPreferenceStore().setDefault(P_PROFILE, false);
+    }
+    
+    protected IPreferenceStore doGetPreferenceStore() {
+        return IESyncPlugin.getDefault().getPreferenceStore();
+    }
 
-			checkbox.setSelection(getPreferenceStore().getBoolean(
-					CHECK_LABELS[index].toLowerCase()));
+    public String[] getLabels() {
+        return CHECK_LABELS;
+    }
 
-			checkbox.setText(CHECK_LABELS[index]);
-			GridData gd = new GridData(GridData.FILL_HORIZONTAL);
-			gd.horizontalSpan = 2;
-			checkbox.setLayoutData(gd);
-			checkbox.addSelectionListener(new SelectionAdapter() {
-				public void widgetSelected(SelectionEvent e) {
-					getPreferenceStore().setValue(CHECK_LABELS[index].toLowerCase(),
-							checkbox.getEnabled());
-				}
-			});
-		}
-	}
-	
-	protected IPreferenceStore doGetPreferenceStore() {
-		return Activator.getDefault().getPreferenceStore();
-	}
-
+    protected void savePluginPreferences() {
+        IESyncPlugin.getDefault().savePluginPreferences();
+    }
 }
