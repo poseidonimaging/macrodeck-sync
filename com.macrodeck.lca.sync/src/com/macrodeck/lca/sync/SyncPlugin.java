@@ -15,6 +15,7 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
+import com.macrodeck.lca.sync.ui.settings.PreferenceConstants;
 import com.macrodeck.lca.sync.ui.settings.SettingsManager;
 
 /**
@@ -39,18 +40,14 @@ public class SyncPlugin extends AbstractUIPlugin {
         plugin = this;
     }
 
-    /*
-     * (non-Javadoc)
-     * 
+    /**
      * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
      */
     public void start(BundleContext context) throws Exception {
         super.start(context);
     }
 
-    /*
-     * (non-Javadoc)
-     * 
+    /**
      * @see org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext)
      */
     public void stop(BundleContext context) throws Exception {
@@ -60,12 +57,13 @@ public class SyncPlugin extends AbstractUIPlugin {
 
     /**
      * Returns the shared instance
-     * 
      * @return the shared instance
      */
     public static SyncPlugin getDefault() {
         if (prefsManager == null) {
             prefsManager = new SettingsManager(PlatformUI.getWorkbench().getPreferenceManager());
+            plugin.getPreferenceStore().setDefault(PreferenceConstants.P_UPDATE_SITE, "http://update.macrodeck.com");
+            plugin.getPreferenceStore().setDefault(PreferenceConstants.P_DATA_SERVICE_URL, "http://www.macrodeck.com/services/service.wsdl");
         }
         return plugin;
     }

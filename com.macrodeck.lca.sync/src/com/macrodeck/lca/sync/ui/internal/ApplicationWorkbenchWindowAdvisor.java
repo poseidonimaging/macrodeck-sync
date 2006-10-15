@@ -104,6 +104,14 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
                 }
             });
             menuItem = new MenuItem(menu, SWT.PUSH);
+            menuItem.setText("Install/&Update");
+            menuItem.setImage(SyncPlugin.getImageDescriptor("icons/16x16/update-manager.png").createImage());
+            menuItem.addSelectionListener(new SelectionAdapter() {
+                public void widgetSelected(SelectionEvent e) {
+                    actionAdvisor.getFindAndInstallAction().run();
+                }
+            });
+            menuItem = new MenuItem(menu, SWT.PUSH);
             menuItem.setText("&Workbench");
             //menuItem.setImage(SyncPlugin.getImageDescriptor("icons/m-16x16.png").createImage());
             menuItem.addSelectionListener(new SelectionAdapter() {

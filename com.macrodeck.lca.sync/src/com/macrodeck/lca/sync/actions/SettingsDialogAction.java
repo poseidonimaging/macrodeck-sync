@@ -52,7 +52,6 @@ public class SettingsDialogAction extends Action implements
 
 	public void run() {
 		try {
-            window.getShell().setVisible(true);
 			final PreferenceManager preferenceManager = SyncPlugin.getDefault().getPreferenceManager();
 			Shell parentShell = window.getShell();
 			if (parentShell == null) {

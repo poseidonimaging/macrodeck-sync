@@ -3,6 +3,8 @@ package com.macrodeck.lca.sync.actions;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import org.eclipse.core.internal.runtime.Product;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.dialogs.IDialogSettings;
@@ -55,7 +57,6 @@ public class InstallUpdateWizardAction extends Action implements IWorkbenchActio
     }
 
     public void run() {
-        window.getShell().setVisible(true);
         openInstaller(PlatformUI.getWorkbench().getActiveWorkbenchWindow());
         if (fromWelcomePage)
             new IntroURLParser("http://org.eclipse.ui.intro/switchToLaunchBar").getIntroURL().execute();
@@ -77,9 +78,9 @@ public class InstallUpdateWizardAction extends Action implements IWorkbenchActio
                     UpdateSearchScope searchScope = new UpdateSearchScope();
                     String searchSite = SyncPlugin.getDefault().getPreferenceStore().getString(PreferenceConstants.P_UPDATE_SITE);
                     if (searchSite == null || searchSite.trim().equals("")) {
-                        searchSite = "http://update.macrodeck.com";
+                        searchSite = SyncPlugin.getDefault().getPreferenceStore().getString(PreferenceConstants.P_UPDATE_SITE);
                     }
-                    searchScope.addSearchSite("Macrodeck Update Site", new URL(searchSite), new String[] {});
+                    searchScope.addSearchSite(Platform.getProduct().getName(), new URL(searchSite), new String[] {});
                     UpdateSearchRequest searchRequest = new UpdateSearchRequest(new SiteSearchCategory(true), searchScope);
                     searchRequest.addFilter(new BackLevelFilter());
                     IDialogSettings settings = UpdateUI.getDefault().getDialogSettings();

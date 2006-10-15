@@ -16,14 +16,14 @@ import com.macrodeck.lca.sync.SyncPlugin;
  * That way, preferences can be accessed directly via the preference store.
  */
 
-public class UserSettingsPage extends FieldEditorPreferencePage implements IWorkbenchPreferencePage {
+public class UpdaterSettingsPage extends FieldEditorPreferencePage implements IWorkbenchPreferencePage {
 
-    public static final String ID = SyncPlugin.PLUGIN_ID + ".preferences.UserSettingsPage";
+    public static final String ID = SyncPlugin.PLUGIN_ID + ".preferences.UpdaterSettingsPage";
 
-    public UserSettingsPage() {
+    public UpdaterSettingsPage() {
         super(GRID);
         setPreferenceStore(SyncPlugin.getDefault().getPreferenceStore());
-        setDescription("Please provide your username and password to login to Macrodeck web service:\n");
+        setDescription("Please provide some information about Macrodeck web service:\n");
     }
 
     /**
@@ -31,8 +31,8 @@ public class UserSettingsPage extends FieldEditorPreferencePage implements IWork
      * preferences. Each field editor knows how to save and restore itself.
      */
     public void createFieldEditors() {
-        addField(new StringFieldEditor(PreferenceConstants.P_USERNAME, "&Username:", getFieldEditorParent()));
-        addField(new PasswordFieldEditor(PreferenceConstants.P_PASSWD, "&Password:", getFieldEditorParent()));
+        addField(new StringFieldEditor(PreferenceConstants.P_UPDATE_SITE, "Update&Site:", getFieldEditorParent()));
+        addField(new StringFieldEditor(PreferenceConstants.P_DATA_SERVICE_URL, "&DataServiceURL:", getFieldEditorParent()));
     }
 
     /*

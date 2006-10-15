@@ -5,6 +5,8 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.IWorkbenchWindowActionDelegate;
 
+import com.macrodeck.lca.sync.ISyncService;
+
 public abstract class SyncAction implements IWorkbenchWindowActionDelegate{
 
 	protected IWorkbenchWindow window;

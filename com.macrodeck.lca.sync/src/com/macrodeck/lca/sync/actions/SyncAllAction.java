@@ -27,7 +27,7 @@ public class SyncAllAction extends SyncAction {
 				IConfigurationElement element = (IConfigurationElement) iter
 						.next();
 				executeAction(element);
-                allPlugins.append(element.getNamespaceIdentifier());
+                allPlugins.append(element.getNamespaceIdentifier()+"\n");
 			}
 		}
 		MessageDialog.openInformation(window.getShell(), Platform.getProduct()

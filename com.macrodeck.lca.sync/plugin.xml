@@ -190,6 +190,10 @@
             class="com.macrodeck.lca.sync.ui.settings.UserSettingsPage"
             id="com.macrodeck.lca.sync.preferences.UserSettingsPage"
             name="User Settings"/>
+      <page
+            class="com.macrodeck.lca.sync.ui.settings.UpdaterSettingsPage"
+            id="com.macrodeck.lca.sync.preferences.UpdaterSettingsPage"
+            name="Install/Update"/>
    </extension>
    <extension
          point="org.eclipse.core.runtime.preferences">
