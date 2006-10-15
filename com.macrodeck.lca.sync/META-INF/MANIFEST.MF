@@ -13,12 +13,15 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.update.core,
  org.eclipse.update.scheduler,
  org.eclipse.update.ui,
- Axis2_Codegen_Wizard,
  org.junit
 Eclipse-LazyStart: true
 Bundle-ClassPath: .,
- lib/commons-httpclient-3.0.1.jar,
- lib/commons-codec-1.3.jar
+ lib/axis.jar,
+ lib/commons-discovery-0.2.jar,
+ lib/jaxrpc.jar,
+ lib/saaj.jar,
+ lib/wsdl4j-1.5.1.jar,
+ lib/commons-logging-1.0.4.jar
 Export-Package: com.macrodeck.lca.sync,
  com.macrodeck.lca.sync.actions,
  com.macrodeck.lca.sync.ui.settings,
