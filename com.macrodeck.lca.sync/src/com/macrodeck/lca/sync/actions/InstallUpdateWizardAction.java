@@ -77,9 +77,6 @@ public class InstallUpdateWizardAction extends Action implements IWorkbenchActio
                     // }
                     UpdateSearchScope searchScope = new UpdateSearchScope();
                     String searchSite = SyncPlugin.getDefault().getPreferenceStore().getString(PreferenceConstants.P_UPDATE_SITE);
-                    if (searchSite == null || searchSite.trim().equals("")) {
-                        searchSite = SyncPlugin.getDefault().getPreferenceStore().getString(PreferenceConstants.P_UPDATE_SITE);
-                    }
                     searchScope.addSearchSite(Platform.getProduct().getName(), new URL(searchSite), new String[] {});
                     UpdateSearchRequest searchRequest = new UpdateSearchRequest(new SiteSearchCategory(true), searchScope);
                     searchRequest.addFilter(new BackLevelFilter());
