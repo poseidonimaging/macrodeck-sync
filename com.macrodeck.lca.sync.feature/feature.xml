@@ -234,12 +234,6 @@ litigati
          unpack="false"/>
 
    <plugin
-         id="Axis2_Codegen_Wizard"
-         download-size="0"
-         install-size="0"
-         version="1.2.0"/>
-
-   <plugin
          id="org.eclipse.update.configurator"
          download-size="0"
          install-size="0"
