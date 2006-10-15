@@ -13,11 +13,12 @@ For more information visit http://www.macrodeck.com
       </text>
    </aboutInfo>
 
-   <windowImages i32="icons/m-16x16-notrans.png, icons/m-16x16-notrans.png, icons/m-32x32-notrans.png"/>
    <configIni use="default"/>
 
    <launcherArgs>
    </launcherArgs>
+
+   <windowImages i16="icons/m-16x16-notrans.png" i32="icons/m-32x32-notrans.png"/>
 
    <splash
       location="com.macrodeck.lca.sync"
@@ -34,24 +35,15 @@ For more information visit http://www.macrodeck.com
    <intro introId="org.eclipse.platform.intro"/>
 
    <plugins>
-      <plugin id="Axis2_Codegen_Wizard"/>
       <plugin id="com.ibm.icu"/>
       <plugin id="com.macrodeck.lca.sync"/>
-      <plugin id="org.apache.ant"/>
       <plugin id="org.apache.lucene"/>
-      <plugin id="org.apache.xerces"/>
       <plugin id="org.eclipse.ant.core"/>
       <plugin id="org.eclipse.core.commands"/>
       <plugin id="org.eclipse.core.contenttype"/>
       <plugin id="org.eclipse.core.expressions"/>
-      <plugin id="org.eclipse.core.filesystem"/>
-      <plugin id="org.eclipse.core.filesystem.win32.x86" fragment="true"/>
       <plugin id="org.eclipse.core.jobs"/>
-      <plugin id="org.eclipse.core.resources"/>
-      <plugin id="org.eclipse.core.resources.compatibility" fragment="true"/>
-      <plugin id="org.eclipse.core.resources.win32" fragment="true"/>
       <plugin id="org.eclipse.core.runtime"/>
-      <plugin id="org.eclipse.core.runtime.compatibility"/>
       <plugin id="org.eclipse.core.runtime.compatibility.auth"/>
       <plugin id="org.eclipse.core.runtime.compatibility.registry" fragment="true"/>
       <plugin id="org.eclipse.core.variables"/>
@@ -67,10 +59,7 @@ For more information visit http://www.macrodeck.com
       <plugin id="org.eclipse.swt.win32.win32.x86" fragment="true"/>
       <plugin id="org.eclipse.ui"/>
       <plugin id="org.eclipse.ui.forms"/>
-      <plugin id="org.eclipse.ui.ide"/>
       <plugin id="org.eclipse.ui.intro"/>
-      <plugin id="org.eclipse.ui.views"/>
-      <plugin id="org.eclipse.ui.win32" fragment="true"/>
       <plugin id="org.eclipse.ui.workbench"/>
       <plugin id="org.eclipse.update.configurator"/>
       <plugin id="org.eclipse.update.core"/>
