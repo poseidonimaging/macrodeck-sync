@@ -7,6 +7,9 @@ import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Text;
 
+import com.macrodeck.lca.sync.AuthCodeCreator;
+import com.macrodeck.lca.sync.SyncServiceImpl;
+
 public class PasswordFieldEditor extends StringFieldEditor {
 
 	
@@ -31,10 +34,8 @@ public class PasswordFieldEditor extends StringFieldEditor {
 	}
     
     protected void doStore() {
-        getPreferenceStore().setValue(getPreferenceName(), hash(getTextControl().getText()));
-    }
-
-    private String hash(String password) {
-        return AuthCodeCreator.sha512(password);
+        String text = getTextControl().getText();
+        getPreferenceStore().setValue(getPreferenceName(), text);
+        SyncServiceImpl.getInstance().setPassword(text);
     }
 }

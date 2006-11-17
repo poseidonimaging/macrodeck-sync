@@ -52,6 +52,7 @@ public class SyncPlugin extends AbstractUIPlugin {
      */
     public void stop(BundleContext context) throws Exception {
         plugin = null;
+        plugin.getPreferenceStore().removePropertyChangeListener(SyncServiceImpl.getInstance());
         super.stop(context);
     }
 
@@ -64,6 +65,8 @@ public class SyncPlugin extends AbstractUIPlugin {
             prefsManager = new SettingsManager(PlatformUI.getWorkbench().getPreferenceManager());
             plugin.getPreferenceStore().setDefault(PreferenceConstants.P_UPDATE_SITE, "http://update.macrodeck.com");
             plugin.getPreferenceStore().setDefault(PreferenceConstants.P_DATA_SERVICE_URL, "http://www.macrodeck.com/services/service.wsdl");
+            //register for property changes
+            plugin.getPreferenceStore().addPropertyChangeListener(SyncServiceImpl.getInstance());
         }
         return plugin;
     }
@@ -86,8 +89,7 @@ public class SyncPlugin extends AbstractUIPlugin {
     /**
      * get filtered plugin config elements
      * 
-     * @param tag
-     *            filter
+     * @param tag filter
      * @return
      */
     public List getAllPluginConfigs(String tagName) {

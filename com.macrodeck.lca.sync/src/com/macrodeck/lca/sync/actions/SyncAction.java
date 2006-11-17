@@ -6,6 +6,7 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.IWorkbenchWindowActionDelegate;
 
 import com.macrodeck.lca.sync.ISyncService;
+import com.macrodeck.lca.sync.SyncServiceImpl;
 
 public abstract class SyncAction implements IWorkbenchWindowActionDelegate{
 
@@ -43,6 +44,6 @@ public abstract class SyncAction implements IWorkbenchWindowActionDelegate{
      * @return dataService
      */
     public ISyncService getSyncService() {
-        throw new RuntimeException("Not implemented yet");
+        return SyncServiceImpl.getInstance();
     }
 }

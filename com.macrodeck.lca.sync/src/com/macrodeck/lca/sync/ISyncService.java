@@ -7,6 +7,8 @@ package com.macrodeck.lca.sync;
 
 import java.io.IOException;
 
+import javax.xml.rpc.ServiceException;
+
 import com.macrodeck.www.xmlns.services._1_0.DataServiceCustomTypesItemMetadata;
 import com.macrodeck.www.xmlns.services._1_0.MacroDeckDataServicePort;
 
