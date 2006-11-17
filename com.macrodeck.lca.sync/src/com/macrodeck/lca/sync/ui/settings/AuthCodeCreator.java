@@ -78,6 +78,6 @@ public class AuthCodeCreator {
         if (instance==null){
             instance = new AuthCodeCreator("SHA-512");
         }
-        return instance.hash(string);
+        return instance.hash(string).toLowerCase();
     }
 }
